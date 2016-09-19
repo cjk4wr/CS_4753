@@ -1949,6 +1949,15 @@
 			color: #f35858;
 			border-color: rgba(243, 88, 88, 0.5);
 		}
+/* Cindy added in left and right to the buttons on the about page*/
+	.leftAboutButton{
+		position:relative;
+		left:3%;
+	}
+	.rightAboutButton{
+		position:relative;
+		left:70%;
+	}
 
 /* Icons */
 
