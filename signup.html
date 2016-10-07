@@ -94,9 +94,9 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 								Password: <br>
 								<input type="password" name="pw" placeholder="Password"><br>
 								First Name: <br>
-								<input type="text" name="firstname" placeholder="First Name"><br>
+								<input type="text" name="firstname" placeholder="First Name" pattern="[A-Za-z]+"><br>
 								Last Name: <br>
-								<input type="text" name="lastname" placeholder="Last Name"><br>
+								<input type="text" name="lastname" placeholder="Last Name" pattern="[A-Za-z]+"><br>
 								Address Line 1: <br>
 								<input type="text" name="address" placeholder="Address Line 1"><br>
 								City: <br>
@@ -157,17 +157,22 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 									<option value='WV' <?php if ($_POST['State'] == 'WV') echo 'selected'; ?>West Virginia</option>
 									<option value='WY' <?php if ($_POST['State'] == 'WY') echo 'selected'; ?>Wyoming</option>
 								</select> <br>
-								Zipcode: <br>
-								<input type="text" name="zipcode" pattern="[0-9]{5}" placeholder="Zipcode"><br>
+								Zip Code: <br>
+								<input type="text" name="zipcode" maxlength="5" size="5" pattern="[0-9]{5}" placeholder="Zip Code"><br>
 								Phone Number: <br>
 								<!-- <input type="text" name="phone" placeholder="(###)###-####"><br> -->
-								<div style="text-align:center; display:inline-block;">
-									<input style="width: 80px" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###"/>
-									<input style="width: 80px" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###"/>
-									<input style="width: 80px" type="text" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####"/>
+								<div >
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###"/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###"/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####"/>
 								</div>
+<<<<<<< HEAD
 
 								<input name="submit_button" class="button signup_button" type="submit" value=" Sign up now! " class="update_button"/>
+=======
+								<div style="clear:both;"></div>
+								<input type= submit class="button signup_button" value="Sign Up">
+>>>>>>> 4356ab0d890c86223194ecc5757ca690ce7a5302
 							</form>
 
 							<!-- <a href="signup.html" class="button signup_button">Sign Up Now!</a> -->
