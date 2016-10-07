@@ -1,4 +1,14 @@
 <!DOCTYPE HTML>
+
+
+<!-- Database input --> 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	echo "Submitted!";
+}
+?>
+
+
 <!--
 	Telephasic by HTML5 UP
 	html5up.net | @ajlkn
@@ -78,7 +88,7 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 							</article>
 					</div>
 						<div class="container">
-							<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>" > <!-- the action will make the page refresh when form is submitted, but we can take that out -->
+							<form method="post">
 								Email Address: <br>
 								<input type="email" name="email" placeholder="example@email.com"><br>
 								Password: <br>
@@ -157,7 +167,7 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 									<input style="width: 80px" type="text" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####"/>
 								</div>
 
-								<input type= submit class="button signup_button" value="Sign Up">
+								<input name="submit_button" class="button signup_button" type="submit" value=" Sign up now! " class="update_button"/>
 							</form>
 
 							<!-- <a href="signup.html" class="button signup_button">Sign Up Now!</a> -->
