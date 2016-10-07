@@ -85,8 +85,68 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 								<input type="password" name="pw" placeholder="Password"><br>
 								Name: <br>
 								<input type="text" name="name" placeholder="Name"><br>
-								Address: <br>
-								<input type="text" name="address" placeholder="THIS NEEDS FIXING"><br>
+								Address Line 1: <br>
+								<input type="text" name="address" placeholder="Address Line 1"><br>
+								City: <br>
+								<input type="text" name="city" placeholder="City"><br>
+								State: <br>
+								<select name='State'>
+									<option value=''>Choose a State</option>
+									<option value='AK' <?php if ($_POST['State'] == 'AK') echo 'selected'; ?>Alaska</option>
+									<option value='AL' <?php if ($_POST['State'] == 'AL') echo 'selected'; ?>Alabama</option>
+									<option value='AR' <?php if ($_POST['State'] == 'AR') echo 'selected'; ?>Arkansas</option>
+									<option value='AZ' <?php if ($_POST['State'] == 'AZ') echo 'selected'; ?>Arizona</option>
+									<option value='CA' <?php if ($_POST['State'] == 'CA') echo 'selected'; ?>California</option>
+									<option value='CO' <?php if ($_POST['State'] == 'CO') echo 'selected'; ?>Colorado</option>
+									<option value='CT' <?php if ($_POST['State'] == 'CT') echo 'selected'; ?>Connecticut</option>
+									<option value='DC' <?php if ($_POST['State'] == 'DC') echo 'selected'; ?>District of Columbia</option>
+									<option value='DE' <?php if ($_POST['State'] == 'DE') echo 'selected'; ?>Delaware</option>
+									<option value='FL' <?php if ($_POST['State'] == 'FL') echo 'selected'; ?>Florida</option>
+									<option value='GA' <?php if ($_POST['State'] == 'GA') echo 'selected'; ?>Georgia</option>
+									<option value='HI' <?php if ($_POST['State'] == 'HI') echo 'selected'; ?>Hawaii</option>
+									<option value='IA' <?php if ($_POST['State'] == 'IA') echo 'selected'; ?>Iowa</option>
+									<option value='ID' <?php if ($_POST['State'] == 'ID') echo 'selected'; ?>Idaho</option>
+									<option value='IL' <?php if ($_POST['State'] == 'IL') echo 'selected'; ?>Illinois</option>
+									<option value='IN' <?php if ($_POST['State'] == 'IN') echo 'selected'; ?>Indiana</option>
+									<option value='KS' <?php if ($_POST['State'] == 'KS') echo 'selected'; ?>Kansas</option>
+									<option value='KY' <?php if ($_POST['State'] == 'KY') echo 'selected'; ?>Kentucky</option>
+									<option value='LA' <?php if ($_POST['State'] == 'LA') echo 'selected'; ?>Louisiana</option>
+									<option value='MA' <?php if ($_POST['State'] == 'MA') echo 'selected'; ?>Massachusetts</option>
+									<option value='MD' <?php if ($_POST['State'] == 'MD') echo 'selected'; ?>Maryland</option>
+									<option value='ME' <?php if ($_POST['State'] == 'ME') echo 'selected'; ?>Maine</option>
+									<option value='MI' <?php if ($_POST['State'] == 'MI') echo 'selected'; ?>Michigan</option>
+									<option value='MN' <?php if ($_POST['State'] == 'MN') echo 'selected'; ?>Minnesota</option>
+									<option value='MO' <?php if ($_POST['State'] == 'MO') echo 'selected'; ?>Missouri</option>
+									<option value='MS' <?php if ($_POST['State'] == 'MS') echo 'selected'; ?>Mississippi</option>
+									<option value='MT' <?php if ($_POST['State'] == 'MT') echo 'selected'; ?>Montana</option>
+									<option value='NC' <?php if ($_POST['State'] == 'NC') echo 'selected'; ?>North Carolina</option>
+									<option value='ND' <?php if ($_POST['State'] == 'MD') echo 'selected'; ?>North Dakota</option>
+									<option value='NE' <?php if ($_POST['State'] == 'ME') echo 'selected'; ?>Nebraska</option>
+									<option value='NH' <?php if ($_POST['State'] == 'NH') echo 'selected'; ?>New Hampshire</option>
+									<option value='NJ' <?php if ($_POST['State'] == 'NJ') echo 'selected'; ?>New Jersey</option>
+									<option value='NM' <?php if ($_POST['State'] == 'NM') echo 'selected'; ?>New Mexico</option>
+									<option value='NV' <?php if ($_POST['State'] == 'NV') echo 'selected'; ?>Nevada</option>
+									<option value='NY' <?php if ($_POST['State'] == 'NY') echo 'selected'; ?>New York</option>
+									<option value='OH' <?php if ($_POST['State'] == 'OH') echo 'selected'; ?>Ohio</option>
+									<option value='OK' <?php if ($_POST['State'] == 'OK') echo 'selected'; ?>Oklahoma</option>
+									<option value='OR' <?php if ($_POST['State'] == 'OR') echo 'selected'; ?>Oregon</option>
+									<option value='PA' <?php if ($_POST['State'] == 'PA') echo 'selected'; ?>Pennsylvania</option>
+									<option value='PR' <?php if ($_POST['State'] == 'PR') echo 'selected'; ?>Puerto Rico</option>
+									<option value='RI' <?php if ($_POST['State'] == 'RI') echo 'selected'; ?>Rhode Island</option>
+									<option value='SC' <?php if ($_POST['State'] == 'SC') echo 'selected'; ?>South Carolina</option>
+									<option value='SD' <?php if ($_POST['State'] == 'SD') echo 'selected'; ?>South Dakota</option>
+									<option value='TN' <?php if ($_POST['State'] == 'TN') echo 'selected'; ?>Tennessee</option>
+									<option value='TX' <?php if ($_POST['State'] == 'TX') echo 'selected'; ?>Texas</option>
+									<option value='UT' <?php if ($_POST['State'] == 'UT') echo 'selected'; ?>Utah</option>
+									<option value='VA' <?php if ($_POST['State'] == 'VA') echo 'selected'; ?>Virginia</option>
+									<option value='VT' <?php if ($_POST['State'] == 'VT') echo 'selected'; ?>Vermont</option>
+									<option value='WA' <?php if ($_POST['State'] == 'WA') echo 'selected'; ?>Washington</option>
+									<option value='WI' <?php if ($_POST['State'] == 'WI') echo 'selected'; ?>Wisconsin</option>
+									<option value='WV' <?php if ($_POST['State'] == 'WV') echo 'selected'; ?>West Virginia</option>
+									<option value='WY' <?php if ($_POST['State'] == 'WY') echo 'selected'; ?>Wyoming</option>
+								</select> <br>
+								Zipcode: <br>
+								<input type="text" name="zipcode" pattern="[0-9]{4}" placeholder="Zipcode"><br>
 								Phone Number: <br>
 								<!-- <input type="text" name="phone" placeholder="(###)###-####"><br> -->
 								<div>
