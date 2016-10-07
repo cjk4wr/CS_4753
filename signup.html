@@ -71,6 +71,20 @@
 							</article>
 					</div>
 						<div class="actions" >
+							<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>"> <!-- the action will make the page refresh when form is submitted, but we can take that out -->
+								Email Address: <br>
+								<input type="email" name="email" placeholder="Email"><br>
+								Password: <br>
+								<input type="text" name="pw" placeholder="Password"><br>
+								Name: <br>
+								<input type="text" name="name" placeholder="Name"><br>
+								Address: <br>
+								<input type="text" name="address" placeholder="THIS NEEDS FIXING"><br>
+								Phone Number: <br>
+								<input type="text" name="phone" placeholder="10-digit Number"><br>
+								<input type="submit" value="submit">
+							</form>
+
 							<a href="signup.html" class="button signup_button">Sign Up Now!</a>
 						</div>
 				</div>
