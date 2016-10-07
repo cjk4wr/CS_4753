@@ -83,15 +83,27 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 								<input type="email" name="email" placeholder="example@email.com"><br>
 								Password: <br>
 								<input type="password" name="pw" placeholder="Password"><br>
+								
+								<h2>Information</h2> <br>
+
+								<div style="display: inline-block; width:475px; margin-right: 10px">
 								First Name: <br>
-								<input type="text" name="firstname" placeholder="First Name" pattern="[A-Za-z]+"><br>
-								Last Name: <br>
-								<input type="text" name="lastname" placeholder="Last Name" pattern="[A-Za-z]+"><br>
+								<input type="text" name="firstname" placeholder="First Name" pattern="[A-Za-z]+">
+								</div>
+								<div style="display: inline-block; width:475px;" >
+									Last Name:<br>
+									<input style="display: inline-block; width:500px;"  type="text" name="lastname" placeholder="Last Name" pattern="[A-Za-z]+"><br>
+								</div>
+								<div style="clear:both;"></div><br>
 								Address Line 1: <br>
 								<input type="text" name="address" placeholder="Address Line 1"><br>
-								City: <br>
-								<input type="text" name="city" placeholder="City"><br>
-								State: <br>
+								
+								<div style="display: inline-block; width:600px; margin-right: 10px">
+									City: <br>
+									<input type="text" name="city" placeholder="City"><br>
+								</div>
+								<div style="display: inline-block; width:300px; margin-right: 10px">
+									State: <br>
 								<select name='State'>
 									<option value=''>Choose a State</option>
 									<option value='AK' <?php if ($_POST['State'] == 'AK') echo 'selected'; ?>Alaska</option>
@@ -147,8 +159,12 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 									<option value='WV' <?php if ($_POST['State'] == 'WV') echo 'selected'; ?>West Virginia</option>
 									<option value='WY' <?php if ($_POST['State'] == 'WY') echo 'selected'; ?>Wyoming</option>
 								</select> <br>
-								Zip Code: <br>
-								<input type="text" name="zipcode" maxlength="5" size="5" pattern="[0-9]{5}" placeholder="Zip Code"><br>
+								</div>
+								<div style="display: inline-block; width:150px;">
+									Zip Code: <br>
+									<input type="text" name="zipcode" maxlength="5" size="5" pattern="[0-9]{5}" placeholder="Zip Code"><br>
+								</div>
+								<div style="clear:both;"></div>
 								Phone Number: <br>
 								<!-- <input type="text" name="phone" placeholder="(###)###-####"><br> -->
 								<div >
