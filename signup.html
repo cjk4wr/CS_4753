@@ -2,10 +2,24 @@
 
 
 <!-- Database input --> 
+<!-- Note for Christine need self served validation -->
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	echo "Submitted!";
-}
+$emailErr = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+  echo "Submitted!";
+
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+ }
 ?>
 
 
@@ -87,8 +101,9 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 							</article>
 					</div>
 						<div class="container">
+							<p><span class="error">* required field.</span></p>
 							<form method="post">
-								Email Address: <br>
+								Email Address: <span class="error">* <?php echo $emailErr;?></span><br>
 								<input type="email" name="email" placeholder="example@email.com"><br>
 								Password: <br>
 								<input type="password" name="pw" placeholder="Password"><br>
