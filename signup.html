@@ -5,6 +5,13 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<script type="text/javascript">
+function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
+	if(document.getElementById(currentFormId).value.length==afterNumChars) {
+		document.getElementById(nextFormId).focus();
+	}
+}
+</script>
 	<head>
 		<title>About Us</title>
 		<meta charset="utf-8" />
@@ -63,28 +70,35 @@
 					<div class="container" id="main">
 
 						<!-- Content -->
-							<article id="content">
+							<article id="content" class="feature">
 								<header>
 									<h2>Register here!</h2>
 								</header>
 								<!-- Originally 3 paragraphs using <p>; commented out b/c unnecessary for us as of now -->
 							</article>
 					</div>
-						<div class="actions" >
-							<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>"> <!-- the action will make the page refresh when form is submitted, but we can take that out -->
+						<div class="container">
+							<form method="post" action="<?php echo $_SERVER['PHP_SELF']?>" > <!-- the action will make the page refresh when form is submitted, but we can take that out -->
 								Email Address: <br>
-								<input type="email" name="email" placeholder="Email"><br>
+								<input type="email" name="email" placeholder="example@email.com"><br>
 								Password: <br>
-								<input type="text" name="pw" placeholder="Password"><br>
+								<input type="password" name="pw" placeholder="Password"><br>
 								Name: <br>
 								<input type="text" name="name" placeholder="Name"><br>
 								Address: <br>
 								<input type="text" name="address" placeholder="THIS NEEDS FIXING"><br>
 								Phone Number: <br>
-								<input type="text" name="phone" placeholder="10-digit Number"><br>
+								<!-- <input type="text" name="phone" placeholder="(###)###-####"><br> -->
+								<div>
+									<input style="width: 50px" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" id="areaCode" maxlength="3" size="3"/>
+									<input style="width: 50px" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" id="phonePre" maxlength="3" size="3" />
+									<input style="width: 50px" type="text" id="phoneSuf" maxlength="4" size="4"/>
+								</div>
+
+								<input type= submit class="button signup_button" value="Sign Up">
 							</form>
 
-							<a href="signup.html" class="button signup_button">Sign Up Now!</a>
+							<!-- <a href="signup.html" class="button signup_button">Sign Up Now!</a> -->
 						</div>
 				</div>
 
