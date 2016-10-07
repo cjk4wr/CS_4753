@@ -1,14 +1,5 @@
 <!DOCTYPE HTML>
-
-
 <!-- Database input --> 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	echo "Submitted!";
-}
-?>
-
-
 <!--
 	Telephasic by HTML5 UP
 	html5up.net | @ajlkn
@@ -89,6 +80,7 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 					</div>
 						<div class="container">
 							<form method="post">
+								<span class="error">* <?php echo $emailErr;?></span>
 								Email Address: <br>
 								<input type="email" name="email" placeholder="example@email.com"><br>
 								Password: <br>
