@@ -7,25 +7,28 @@
 		die ("Could not connect to db: " . $db->connect_error);
 	endif;
 
-// #if (table does not exists) {
-// 	create query;
-// 	else:
-//	do the if(server = post) code
+	$q = 'select 1 from `UserInfo` LIMIT 1';
+	$val = $db->query($q);
+
+	if($val !== FALSE) {
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+    		$email = $_POST["email"];
+    		$pass = $_POST["pw"];
+    		$name = $_POST["firstname"]. " " . $_POST["lastname"];
+    		$address = $_POST["address"] . ", " . $_POST["city"] . ", " . $_POST["state"] . ", " . $_POST["zipcode"];
+    		$phone = $_POST["phoneOne"] . $_POST["phoneTwo"] . $_POST["phoneThree"];
+
+    		$query = $db->query("insert into userinfo (email, password, name, address, phone) VALUES ('$email', '$pass', '$name', '$address', '$phone')") or die ("Invalid: " . $db->error);
+ 		}
+
+	} else {
 
 	$db->query("drop table UserInfo");
 
 	$result = $db->query("create table UserInfo (email varchar(255) primary key not null, password varchar(255) not null, name varchar(255) not null, address varchar(255) not null, phone int(20) not null)") or die ("Invalid: " . $db->error);
 
-$emailErr = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {	
-    $email = $_POST["email"];
-    $pass = $_POST["pw"];
-    $name = $_POST["firstname"]. " " . $_POST["lastname"];
-    $address = $_POST["address"] . ", " . $_POST["city"] . ", " . $_POST["state"] . ", " . $_POST["zipcode"];
-    $phone = $_POST["phoneOne"] . $_POST["phoneTwo"] . $_POST["phoneThree"];
-
-    $query = $db->query("insert into userinfo (email, password, name, address, phone) VALUES ('$email', '$pass', '$name', '$address', '$phone')") or die ("Invalid: " . $db->error);
- }
+}
 ?>
 
 <!--
@@ -108,7 +111,9 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 					</div>
 					<?php 
 					if ($_SERVER["REQUEST_METHOD"] == "POST") {	
-  						echo "Congrats! You are now a user! Feel free to browse our website!";
+						?>
+  						<p> Congrats! You are now a user! Feel free to browse our website! </p>
+  						<?php
   					}
   						?>
 						<div class="container">
@@ -195,16 +200,16 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 								</div>
 								<div style="display: inline-block; width:150px;">
 									Zip Code: <br>
-									<input type="text" name="zipcode" maxlength="5" size="5" pattern="[0-9]{5}" placeholder="Zip Code" title="Please use numbers." required><br>
+									<input type="text" name="zipcode" maxlength="5" size="5" pattern="[0-9]{5}" placeholder="Zip Code" title="Please use a 5-digit number." required><br>
 								</div>
 								<div style="clear:both;"></div>
 
 								Phone Number: <br>
 								<!-- <input type="text" name="phone" placeholder="(###)###-####"><br> -->
 								<div >
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" name="phoneOne" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers." required/>
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" name="phoneTwo" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers." required/>
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="phoneThree" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use numbers." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" name="phoneOne" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use a 3-digit number." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" name="phoneTwo" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use a 3-digit number." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="phoneThree" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use a 4-digit number." required/>
 								</div>
 								<div style="clear:both;"></div>
 								<input type= submit class="button signup_button" value="Sign Up">
