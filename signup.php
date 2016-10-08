@@ -1,22 +1,32 @@
-<!DOCTYPE HTML>
 <!-- Database input --> 
 <!-- Note for Christine need self served validation -->
 <?php
+
+	$db = new mysqli('localhost', 'root', '', 'ecomm');
+	if ($db->connect_error):
+		die ("Could not connect to db: " . $db->connect_error);
+	endif;
+
+	$db->query("drop table UserInfo");
+
+	$result = $db->query("create table UserInfo (email varchar(255) primary key not null, password varchar(255) not null, name varchar(255) not null, address varchar(255) not null, phone int(20) not null)") or die ("Invalid: " . $db->error);
+
 $emailErr = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
-  echo "Submitted!";
 
   if (empty($_POST["name"])) {
     $nameErr = "Name is required";
   } else {
-    $name = test_input($_POST["name"]);
+    $name = $_POST["name"];
   }
   
   if (empty($_POST["email"])) {
     $emailErr = "Email is required";
   } else {
-    $email = test_input($_POST["email"]);
-  }
+    $email = $_POST["email"];
+  } 
+
+
  }
 ?>
 
@@ -25,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<!DOCTYPE HTML>
 <html>
 <script type="text/javascript">
 function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
@@ -92,14 +103,19 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 						<!-- Content -->
 							<article id="content" class="feature">
 								<header>
-									<h2>Registeration</h2>
+									<h2>Registration</h2>
 								</header>
 								<!-- Originally 3 paragraphs using <p>; commented out b/c unnecessary for us as of now -->
 							</article>
 					</div>
+					<?php 
+					if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+  						echo "Submitted!";
+  					}
+  						?>
 						<div class="container">
 							<p><span class="error">* required field.</span></p>
-							<form method="post">
+							<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 								<span class="error">* <?php echo $emailErr;?></span>
 								Email Address: <br>
 								<input type="email" name="email" placeholder="example@email.com"><br>
@@ -127,60 +143,59 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 								</div>
 								<div style="display: inline-block; width:300px; margin-right: 10px">
 									State: <br>
-								<select name='State'>
-									<option value=''>Choose a State</option>
-									<option value='AK' <?php if ($_POST['State'] == 'AK') echo 'selected'; ?>AK</option>
-									<option value='AL' <?php if ($_POST['State'] == 'AL') echo 'selected'; ?>AL</option>
-									<option value='AR' <?php if ($_POST['State'] == 'AR') echo 'selected'; ?>AR</option>
-									<option value='AZ' <?php if ($_POST['State'] == 'AZ') echo 'selected'; ?>AZ</option>
-									<option value='CA' <?php if ($_POST['State'] == 'CA') echo 'selected'; ?>CA</option>
-									<option value='CO' <?php if ($_POST['State'] == 'CO') echo 'selected'; ?>CO</option>
-									<option value='CT' <?php if ($_POST['State'] == 'CT') echo 'selected'; ?>CT</option>
-									<option value='DC' <?php if ($_POST['State'] == 'DC') echo 'selected'; ?>DC</option>
-									<option value='DE' <?php if ($_POST['State'] == 'DE') echo 'selected'; ?>DE</option>
-									<option value='FL' <?php if ($_POST['State'] == 'FL') echo 'selected'; ?>FL</option>
-									<option value='GA' <?php if ($_POST['State'] == 'GA') echo 'selected'; ?>GA</option>
-									<option value='HI' <?php if ($_POST['State'] == 'HI') echo 'selected'; ?>HI</option>
-									<option value='IA' <?php if ($_POST['State'] == 'IA') echo 'selected'; ?>IA</option>
-									<option value='ID' <?php if ($_POST['State'] == 'ID') echo 'selected'; ?>ID</option>
-									<option value='IL' <?php if ($_POST['State'] == 'IL') echo 'selected'; ?>IL</option>
-									<option value='IN' <?php if ($_POST['State'] == 'IN') echo 'selected'; ?>IN</option>
-									<option value='KS' <?php if ($_POST['State'] == 'KS') echo 'selected'; ?>KS</option>
-									<option value='KY' <?php if ($_POST['State'] == 'KY') echo 'selected'; ?>KY</option>
-									<option value='LA' <?php if ($_POST['State'] == 'LA') echo 'selected'; ?>LA</option>
-									<option value='MA' <?php if ($_POST['State'] == 'MA') echo 'selected'; ?>MA</option>
-									<option value='MD' <?php if ($_POST['State'] == 'MD') echo 'selected'; ?>MD</option>
-									<option value='ME' <?php if ($_POST['State'] == 'ME') echo 'selected'; ?>ME</option>
-									<option value='MI' <?php if ($_POST['State'] == 'MI') echo 'selected'; ?>MI</option>
-									<option value='MN' <?php if ($_POST['State'] == 'MN') echo 'selected'; ?>MN</option>
-									<option value='MO' <?php if ($_POST['State'] == 'MO') echo 'selected'; ?>MO</option>
-									<option value='MS' <?php if ($_POST['State'] == 'MS') echo 'selected'; ?>MS</option>
-									<option value='MT' <?php if ($_POST['State'] == 'MT') echo 'selected'; ?>MT</option>
-									<option value='NC' <?php if ($_POST['State'] == 'NC') echo 'selected'; ?>NC</option>
-									<option value='ND' <?php if ($_POST['State'] == 'MD') echo 'selected'; ?>ND</option>
-									<option value='NE' <?php if ($_POST['State'] == 'ME') echo 'selected'; ?>NE</option>
-									<option value='NH' <?php if ($_POST['State'] == 'NH') echo 'selected'; ?>NH</option>
-									<option value='NJ' <?php if ($_POST['State'] == 'NJ') echo 'selected'; ?>NJ</option>
-									<option value='NM' <?php if ($_POST['State'] == 'NM') echo 'selected'; ?>NM</option>
-									<option value='NV' <?php if ($_POST['State'] == 'NV') echo 'selected'; ?>NV</option>
-									<option value='NY' <?php if ($_POST['State'] == 'NY') echo 'selected'; ?>NY</option>
-									<option value='OH' <?php if ($_POST['State'] == 'OH') echo 'selected'; ?>OH</option>
-									<option value='OK' <?php if ($_POST['State'] == 'OK') echo 'selected'; ?>OK</option>
-									<option value='OR' <?php if ($_POST['State'] == 'OR') echo 'selected'; ?>OR</option>
-									<option value='PA' <?php if ($_POST['State'] == 'PA') echo 'selected'; ?>PA</option>
-									<option value='RI' <?php if ($_POST['State'] == 'RI') echo 'selected'; ?>RI</option>
-									<option value='SC' <?php if ($_POST['State'] == 'SC') echo 'selected'; ?>SC</option>
-									<option value='SD' <?php if ($_POST['State'] == 'SD') echo 'selected'; ?>SD</option>
-									<option value='TN' <?php if ($_POST['State'] == 'TN') echo 'selected'; ?>TN</option>
-									<option value='TX' <?php if ($_POST['State'] == 'TX') echo 'selected'; ?>TX</option>
-									<option value='UT' <?php if ($_POST['State'] == 'UT') echo 'selected'; ?>UT</option>
-									<option value='VA' <?php if ($_POST['State'] == 'VA') echo 'selected'; ?>VA</option>
-									<option value='VT' <?php if ($_POST['State'] == 'VT') echo 'selected'; ?>VT</option>
-									<option value='WA' <?php if ($_POST['State'] == 'WA') echo 'selected'; ?>WA</option>
-									<option value='WI' <?php if ($_POST['State'] == 'WI') echo 'selected'; ?>WI</option>
-									<option value='WV' <?php if ($_POST['State'] == 'WV') echo 'selected'; ?>WV</option>
-									<option value='WY' <?php if ($_POST['State'] == 'WY') echo 'selected'; ?>WY</option>
-								</select> <br>
+								<select name = "state">
+									<option value="AL">AL</option>
+									<option value="AK">AK</option>
+									<option value="AZ">AZ</option>
+									<option value="AR">AR</option>
+									<option value="CA">CA</option>
+									<option value="CO">CO</option>
+									<option value="CT">CT</option>
+									<option value="DE">DE</option>
+									<option value="DC">DC</option>
+									<option value="FL">FL</option>
+									<option value="GA">GA</option>
+									<option value="HI">HI</option>
+									<option value="ID">ID</option>
+									<option value="IL">IL</option>
+									<option value="IN">IN</option>
+									<option value="IA">IA</option>
+									<option value="KS">KS</option>
+									<option value="KY">KY</option>
+									<option value="LA">LA</option>
+									<option value="ME">ME</option>
+									<option value="MD">MD</option>
+									<option value="MA">MA</option>
+									<option value="MI">MI</option>
+									<option value="MN">MN</option>
+									<option value="MS">MS</option>
+									<option value="MO">MO</option>
+									<option value="MT">MT</option>
+									<option value="NE">NE</option>
+									<option value="NV">NV</option>
+									<option value="NH">NH</option>
+									<option value="NJ">NJ</option>
+									<option value="NM">NM</option>
+									<option value="NY">NY</option>
+									<option value="NC">NC</option>
+									<option value="ND">ND</option>
+									<option value="OH">OH</option>
+									<option value="OK">OK</option>
+									<option value="OR">OR</option>
+									<option value="PA">PA</option>
+									<option value="RI">RI</option>
+									<option value="SC">SC</option>
+									<option value="SD">SD</option>
+									<option value="TN">TN</option>
+									<option value="TX">TX</option>
+									<option value="UT">UT</option>
+									<option value="VT">VT</option>
+									<option value="VA">VA</option>
+									<option value="WA">WA</option>
+									<option value="WV">WV</option>
+									<option value="WI">WI</option>
+									<option value="WY">WY</option>
+								</select><br>
 								</div>
 								<div style="display: inline-block; width:150px;">
 									Zip Code: <br>
