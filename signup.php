@@ -14,17 +14,17 @@
 $emailErr = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 
+	if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = $_POST["email"];
+  } 
+
   if (empty($_POST["name"])) {
     $nameErr = "Name is required";
   } else {
     $name = $_POST["name"];
   }
-  
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = $_POST["email"];
-  } 
 
 
  }
@@ -118,32 +118,32 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 							<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 								<span class="error">* <?php echo $emailErr;?></span>
 								Email Address: <br>
-								<input type="email" name="email" placeholder="example@email.com"><br>
+								<input type="email" name="email" placeholder="example@email.com" required><br>
 								Password: <br>
-								<input type="password" name="pw" placeholder="Password"><br>
+								<input type="password" name="pw" placeholder="Password" required><br>
 								
 								<h2 class="feature">Information</h2> <br>
 
 								<div style="display: inline-block; width:470px; margin-right: 15px">
 									First Name: <br>
-									<input type="text" name="firstname" placeholder="First Name" pattern="[A-Za-z]+">
+									<input type="text" name="firstname" placeholder="First Name" pattern="[A-Za-z]+" title="Please use letters." required>
 								</div>
 								<div style="display: inline-block; width:470px;" >
 									Last Name:<br>
-									<input style="display: inline-block; width:470px;"  type="text" name="lastname" placeholder="Last Name" pattern="[A-Za-z]+"><br>
+									<input style="display: inline-block; width:470px;"  type="text" name="lastname" placeholder="Last Name" pattern="[A-Za-z]+" title="Please use letters." required><br>
 								</div>
 								<div style="clear:both;"></div><br>
 
 								Address Line 1: <br>
-								<input type="text" name="address" placeholder="Address Line 1"><br>
+								<input type="text" name="address" placeholder="Address Line 1" required><br>
 								
 								<div style="display: inline-block; width:483px; margin-right: 10px">
 									City: <br>
-									<input type="text" name="city" placeholder="City"><br>
+									<input type="text" name="city" placeholder="City" pattern="[A-Za-z]+" title="Please use letters." required><br>
 								</div>
 								<div style="display: inline-block; width:300px; margin-right: 10px">
 									State: <br>
-								<select name = "state">
+								<select name = "state" required>
 									<option value="AL">AL</option>
 									<option value="AK">AK</option>
 									<option value="AZ">AZ</option>
@@ -199,16 +199,16 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 								</div>
 								<div style="display: inline-block; width:150px;">
 									Zip Code: <br>
-									<input type="text" name="zipcode" maxlength="5" size="5" pattern="[0-9]{5}" placeholder="Zip Code"><br>
+									<input type="text" name="zipcode" maxlength="5" size="5" pattern="[0-9]{5}" placeholder="Zip Code" title="Please use numbers." required><br>
 								</div>
 								<div style="clear:both;"></div>
 
 								Phone Number: <br>
 								<!-- <input type="text" name="phone" placeholder="(###)###-####"><br> -->
 								<div >
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers."/>
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers."/>
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use numbers."/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use numbers." required/>
 								</div>
 								<div style="clear:both;"></div>
 								<input type= submit class="button signup_button" value="Sign Up">
