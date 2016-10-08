@@ -7,26 +7,24 @@
 		die ("Could not connect to db: " . $db->connect_error);
 	endif;
 
+// #if (table does not exists) {
+// 	create query;
+// 	else:
+//	do the if(server = post) code
+
 	$db->query("drop table UserInfo");
 
 	$result = $db->query("create table UserInfo (email varchar(255) primary key not null, password varchar(255) not null, name varchar(255) not null, address varchar(255) not null, phone int(20) not null)") or die ("Invalid: " . $db->error);
 
 $emailErr = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
-
-	if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
     $email = $_POST["email"];
-  } 
+    $pass = $_POST["pw"];
+    $name = $_POST["firstname"]. " " . $_POST["lastname"];
+    $address = $_POST["address"] . ", " . $_POST["city"] . ", " . $_POST["state"] . ", " . $_POST["zipcode"];
+    $phone = $_POST["phoneOne"] . $_POST["phoneTwo"] . $_POST["phoneThree"];
 
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-  } else {
-    $name = $_POST["name"];
-  }
-
-
+    $query = $db->query("insert into userinfo (email, password, name, address, phone) VALUES ('$email', '$pass', '$name', '$address', '$phone')") or die ("Invalid: " . $db->error);
  }
 ?>
 
@@ -110,7 +108,7 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 					</div>
 					<?php 
 					if ($_SERVER["REQUEST_METHOD"] == "POST") {	
-  						echo "Submitted!";
+  						echo "Congrats! You are now a user! Feel free to browse our website!";
   					}
   						?>
 						<div class="container">
@@ -204,9 +202,9 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 								Phone Number: <br>
 								<!-- <input type="text" name="phone" placeholder="(###)###-####"><br> -->
 								<div >
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers." required/>
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers." required/>
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use numbers." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" name="phoneOne" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" name="phoneTwo" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use numbers." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="phoneThree" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use numbers." required/>
 								</div>
 								<div style="clear:both;"></div>
 								<input type= submit class="button signup_button" value="Sign Up">
