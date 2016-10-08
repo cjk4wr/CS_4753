@@ -114,9 +114,7 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
   					}
   						?>
 						<div class="container">
-							<p><span class="error">* required field.</span></p>
 							<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-								<span class="error">* <?php echo $emailErr;?></span>
 								Email Address: <br>
 								<input type="email" name="email" placeholder="example@email.com" required><br>
 								Password: <br>
