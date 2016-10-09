@@ -1949,7 +1949,7 @@
 			color: #000000;
 			border-color: rgba(243, 88, 88, 0.5);
 		}
-/* Cindy added in left and right to the buttons on the about page*/
+/* Group added in left and right to the buttons on the about page*/
 	.signup_button{
 	    color: white;
 		background-color: #f08c89;
@@ -1962,7 +1962,20 @@
 		position:relative;
 		left:42%;
 	}
-
+.errorMessages {
+    display: none;
+    list-style-type: disc;
+    margin: 0 10px 15px 10px;
+    padding: 8px 35px 8px 30px;
+    color: #B94A48;
+    background-color: #F2DEDE;
+    border: 2px solid #EED3D7;
+    border-radius: 4px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.errorMessages span {
+    font-weight: bold;
+}
 /* Icons */
 
 	.icon {

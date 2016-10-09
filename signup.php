@@ -38,21 +38,59 @@
 -->
 <!DOCTYPE HTML>
 <html>
-<script type="text/javascript">
-function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
-	if(document.getElementById(currentFormId).value.length==afterNumChars) {
-		document.getElementById(nextFormId).focus();
-	}
-}
-</script>
 	<head>
-		<title>About Us</title>
+		<title>Sign Up</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
+		<script type="text/javascript">
+		function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
+		if(document.getElementById(currentFormId).value.length==afterNumChars) {
+			document.getElementById(nextFormId).focus();
+			}
+		}
+		</script>
+
+		<script type="text/javascript">
+		$(function() {
+    	var createAllErrors = function() {
+        var form = $(this);
+        var errorList = $('ul.errorMessages', form);
+        
+        var showAllErrorMessages = function() {
+            errorList.empty();
+            
+            //Find all invalid fields within the form.
+            form.find(':invalid').each(function(index, node) {
+
+                //Find the field's corresponding label
+                var label = $('label[for=' + node.id + ']');
+
+                //Opera incorrectly does not fill the validationMessage property.
+                var message = node.validationMessage || 'Invalid value.';
+                errorList
+                    .show()
+                    .append('<li><span>' + label.html() + '</span> ' + message + '</li>');
+            });
+        };
+        
+        $('input[type=submit], button', form).on('click', showAllErrorMessages);
+        $('input[type=text]', form).on('keypress', function(event) {
+            //keyCode 13 is Enter
+            if (event.keyCode == 13) {
+                showAllErrorMessages();
+            }
+        });
+    };
+    
+    $('form').each(createAllErrors);
+});
+
+</script>
 	</head>
 	<body class="no-sidebar">
 		<div id="page-wrapper">
@@ -112,18 +150,19 @@ function autoFormAdvance(afterNumChars,currentFormId,nextFormId) {
 					<?php 
 					if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 						?>
-  						<p> Congrats! You are now a user! Feel free to browse our website! </p>
+  						<h3><strong> &nbsp; &nbsp; Congrats! You are now a user! Feel free to browse our website! <strong></h3> <br>
   						<?php
   					}
   						?>
 						<div class="container">
 							<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+								<ul class="errorMessages"></ul>
 								Email Address: <br>
 								<input type="email" name="email" placeholder="example@email.com" required><br>
 								Password: <br>
 								<input type="password" name="pw" placeholder="Password" required><br>
-								
-								<h2 class="feature">Information</h2> <br>
+								<br>
+								<h2 class="feature">Information</h2> <br> <br>
 
 								<div style="display: inline-block; width:470px; margin-right: 15px">
 									First Name: <br>
