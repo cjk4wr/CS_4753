@@ -158,7 +158,7 @@
 							<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 								<ul class="errorMessages"></ul>
 								Email Address: <br>
-								<input type="email" name="email" placeholder="example@email.com" required><br>
+								<input type="email" name="email" placeholder="example@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" title="Please use format example@email.com" required><br>
 								Password: <br>
 								<input type="password" name="pw" placeholder="Password" pattern=".{6,}" title="Please make password at least 6 characters." required><br>
 								<br>
@@ -174,8 +174,8 @@
 								</div>
 								<div style="clear:both;"></div><br>
 
-								Address Line 1: <br>
-								<input type="text" name="address" placeholder="Address Line 1" required><br>
+								Address: <br>
+								<input type="text" name="address" placeholder="1234 StreetName" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z\s]).{8,}" title="Please include letters and numbers" required><br>
 								
 								<div style="display: inline-block; width:483px; margin-right: 10px">
 									City: <br>
