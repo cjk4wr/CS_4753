@@ -160,7 +160,7 @@
 								Email Address: <br>
 								<input type="email" name="email" placeholder="example@email.com" required><br>
 								Password: <br>
-								<input type="password" name="pw" placeholder="Password" pattern=".{6,}" required><br>
+								<input type="password" name="pw" placeholder="Password" pattern=".{6,}" title="Please make password at least 6 characters." required><br>
 								<br>
 								<h2 class="feature">Information</h2> <br> <br>
 
