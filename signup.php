@@ -129,7 +129,7 @@
 									<!-- ^^ Note: This is here to make headings lined correctly; delete when we uncomment other li -->
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
 									<!-- a href="left-sidebar.html" -> getting rid of sign up link for now -->
-									<li><a href="signup.html">Sign up</a></li>
+									<li><a href="signup.php">Sign up</a></li>
 								</ul>
 							</nav>
 
