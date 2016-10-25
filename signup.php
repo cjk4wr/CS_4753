@@ -162,7 +162,7 @@
 								Password: <br>
 								<input type="password" name="pw" placeholder="Password" pattern=".{6,}" title="Please make password at least 6 characters." required><br>
 								<br>
-								<h2 class="feature">Information</h2> <br> <br>
+								<h2 class="feature">Personal Information</h2> <br> <br>
 
 								<div style="display: inline-block; width:470px; margin-right: 15px">
 									First Name: <br>
@@ -249,6 +249,24 @@
 									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'areaCode','phonePre')" name="phoneOne" id="areaCode" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use a 3-digit number." required/>
 									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(3,'phonePre','phoneSuf')" name="phoneTwo" id="phonePre" maxlength="3" size="3" pattern="[0-9]{3}" placeholder="###" title="Please use a 3-digit number." required/>
 									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="phoneThree" id="phoneSuf" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use a 4-digit number." required/>
+								</div>
+								<div style="clear:both;"></div>
+								<h2 class="feature">Banking Information</h2> <br> <br>
+								<div style="display: inline-block; width:470px; margin-right: 15px">
+									Credit Card Number: <br>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(4,'cc1','cc2')" name="ccOne" id="cc1" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use a 4-digit number." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(4,'cc2','cc3')" name="ccTwo" id="cc2" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use a 4-digit number." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(4,'cc3','cc4')" name="ccThree" id="cc3" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use a 4-digit number." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="ccFour" id="cc4" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use a 4-digit number." required/>
+								</div>
+								<div style="display: inline-block; width:200px;" >
+									Expiration Date: <br>
+									<input style="float:left; display:inline-block; width:80px;" type="text" onkeyup="autoFormAdvance(2,'month','year')" name="date1" id="month" maxlength="2" size="2" pattern="[0-9]{2}" placeholder="MM" title="Please use the MM format. For example, type 05 for May." required/> 
+									<input style="float:left; display:inline-block; width:80px;" type="text" name="date2" id="year" maxlength="2" size="2" pattern="[0-9]{2}" placeholder="YY" title="Please use the YY format. For example, type 17 for 2017." required/>
+								</div>
+								<div style="display: inline-block; width:470px;" >
+									CVV: <br>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="CVVcode" id="cvv" required pattern="[0-9]{3,}" placeholder="CVV" title="Please input at least 3-digit number." required/>
 								</div>
 								<div style="clear:both;"></div>
 								<input type= submit class="button signup_button" value="Sign Up">
