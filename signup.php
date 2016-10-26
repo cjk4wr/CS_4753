@@ -1,5 +1,4 @@
 <!-- Database input --> 
-<!-- Note for Christine need self served validation -->
 <?php
 
 	$db = new mysqli('localhost', 'root', '', 'ecomm');
@@ -147,15 +146,9 @@
 								<!-- Originally 3 paragraphs using <p>; commented out b/c unnecessary for us as of now -->
 							</article>
 					</div>
-					<?php 
-					if ($_SERVER["REQUEST_METHOD"] == "POST") {	
-						?>
-  						<h3><strong> &nbsp; &nbsp; Congrats! You are now a user! Feel free to browse our website! <strong></h3> <br>
-  						<?php
-  					}
-  						?>
 						<div class="container">
-							<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+							<form method="post" action="transaction.php">
+								<!-- To make it refresh on same page, <?php echo $_SERVER['PHP_SELF']; ?> -->
 								<ul class="errorMessages"></ul>
 								Email Address: <br>
 								<input type="email" name="email" placeholder="example@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" title="Please use format example@email.com" required><br>
@@ -261,14 +254,15 @@
 								</div>
 								<div style="display: inline-block; width:200px;" >
 									Expiration Date: <br>
-									<input style="float:left; display:inline-block; width:80px;" type="text" onkeyup="autoFormAdvance(2,'month','year')" name="date1" id="month" maxlength="2" size="2" pattern="[0-9]{2}" placeholder="MM" title="Please use the MM format. For example, type 05 for May." required/> 
+									<input style="float:left; display:inline-block; width:80px;" type="text" onkeyup="autoFormAdvance(2,'month','year')" name="date1" id="month" maxlength="2" size="2" pattern="^(1[0-2]|[1-9])$" placeholder="MM" title="Please use the MM format. For example, type 05 for May." required/> 
 									<input style="float:left; display:inline-block; width:80px;" type="text" name="date2" id="year" maxlength="2" size="2" pattern="[0-9]{2}" placeholder="YY" title="Please use the YY format. For example, type 17 for 2017." required/>
 								</div>
 								<div style="display: inline-block; width:470px;" >
 									CVV: <br>
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="CVVcode" id="cvv" required pattern="[0-9]{3,}" placeholder="CVV" title="Please input at least 3-digit number." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="CVVcode" id="cvv" maxlength="4" required pattern="[0-9]{3,4}" placeholder="CVV" title="Please input a 3 or 4-digit number." required/>
 								</div>
 								<div style="clear:both;"></div>
+								<br>
 								<input type= submit class="button signup_button" value="Sign Up">
 							</form>
 

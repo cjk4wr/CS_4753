@@ -1957,10 +1957,10 @@
 		left:42%;
 	}
 	.purchase_button{
-		color: white;
-		background-color: #3dd162;
-		position:relative;
-		left:42%;
+	    color: white;
+		background-color: #f08c89;
+		position:absolute;
+		top: 50%;
 	}
 .errorMessages {
     display: none;
