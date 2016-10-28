@@ -173,7 +173,7 @@ $cardissue = false;
 						<input type="hidden" name="tax_rate" value="10.000">
 						<input type="hidden" name="shipping" value="3.00">
 						<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-						<div class="container">
+						<div class="container 50%">
 						<table>
 						<tr><td><input type="hidden" name="on0" value="Subscriptions"></td></tr><tr><td><select name="os0">
 							<option value="Weekly Subscription">Weekly Subscription $9.99 USD</option>
