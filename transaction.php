@@ -1,3 +1,9 @@
+<!--EComm Milestone
+
+- Make sure expiration date year is greater than 16
+- do we need to check for current date? (maybe a check on php: if(year == 16) check month or call error))
+- 
+-->
 <!-- Database input --> 
 <?php
 
@@ -27,6 +33,15 @@
 
 	$result = $db->query("create table userinfo (email varchar(255) primary key not null, password varchar(255) not null, name varchar(255) not null, address varchar(255) not null, phone int(20) not null)") or die ("Invalid: " . $db->error);
 
+	$email = $_POST["email"];
+    		$pass = $_POST["pw"];
+    		$name = $_POST["firstname"]. " " . $_POST["lastname"];
+    		$address = $_POST["address"] . ", " . $_POST["city"] . ", " . $_POST["state"] . ", " . $_POST["zipcode"];
+    		$phone = $_POST["phoneOne"] . $_POST["phoneTwo"] . $_POST["phoneThree"];
+
+    		$query = $db->query("insert into userinfo (email, password, name, address, phone) VALUES ('$email', '$pass', '$name', '$address', '$phone')") or die ("Invalid: " . $db->error);
+
+
 }
 
 	$card = 'select 1 from `cardinfo` LIMIT 1';
@@ -50,6 +65,14 @@
 	echo "failed";
 
 	$result = $db->query("create table cardinfo (email varchar(255), cardnum varchar(16), expiration varchar(255), cvv varchar(3), FOREIGN KEY (email) REFERENCES userinfo(email) ON DELETE CASCADE)") or die ("Invalid: " . $db->error);
+
+	$email = $_POST["email"];
+			$card = $_POST["ccOne"] . $_POST["ccTwo"] . $_POST["ccThree"] . $_POST["ccFour"];
+			$expire = $_POST["date1"] . "/" . $_POST["date2"];
+			$cvv = $_POST["CVVcode"];
+
+			$cardquery = $db->query("insert into cardinfo (email, cardnum, expiration, cvv) VALUES ('$email', '$card', '$expire', '$cvv')") or die ("Invalid: " . $db->error);
+
 
 }
 ?>
