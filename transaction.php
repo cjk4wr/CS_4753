@@ -175,7 +175,7 @@ $cardissue = false;
 						<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
 						<div class="container">
 						<table>
-						<tr><td><input type="hidden" name="on0" value="Subscriptions">Subscriptions</td></tr><tr><td><select name="os0">
+						<tr><td><input type="hidden" name="on0" value="Subscriptions"></td></tr><tr><td><select name="os0">
 							<option value="Weekly Subscription">Weekly Subscription $9.99 USD</option>
 							<option value="Monthly Subscription">Monthly Subscription $29.99 USD</option>
 							<option value="Semester long Subscription">Semester long Subscription $99.99 USD</option>
