@@ -4,8 +4,23 @@
 - do we need to check for current date? (maybe a check on php: if(year == 16) check month or call error))
 - 
 -->
+
 <!-- Database input --> 
 <?php
+
+$string = "Congratulations! You are now a user! Feel free to browse our website!";
+$cardissue = false;
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+		if($_POST["date2"] == '16' && $_POST["date1"] < '12') {
+			$string = "There seems to be an issue with your card info. Please press the back button and confirm your card has not expired.";
+			$cardissue = true;
+		}
+		if($_POST["date2"] < '16') {
+			$string = "There seems to be an issue with your card info. Please press the back button and confirm your card has not expired.";
+			$cardissue = true;
+		}
+	}
 
 	$db = new mysqli('localhost', 'root', '', 'ecomm');
 	if ($db->connect_error):
@@ -16,8 +31,7 @@
 	$val = $db->query($q);
 
 	if($val !== FALSE) {
-
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+		if ($_SERVER["REQUEST_METHOD"] == "POST" && $cardissue == false) {	
     		$email = $_POST["email"];
     		$pass = $_POST["pw"];
     		$name = $_POST["firstname"]. " " . $_POST["lastname"];
@@ -29,7 +43,6 @@
 	} else {
 
 	$db->query("drop table userinfo");
-
 
 	$result = $db->query("create table userinfo (email varchar(255) primary key not null, password varchar(255) not null, name varchar(255) not null, address varchar(255) not null, phone int(20) not null)") or die ("Invalid: " . $db->error);
 
@@ -49,7 +62,8 @@
 
 	if($val2 !== FALSE) {
 
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+		if ($_SERVER["REQUEST_METHOD"] == "POST" && $cardissue == false) {	
+
 			$email = $_POST["email"];
 			$card = $_POST["ccOne"] . $_POST["ccTwo"] . $_POST["ccThree"] . $_POST["ccFour"];
 			$expire = $_POST["date1"] . "/" . $_POST["date2"];
@@ -62,8 +76,6 @@
 
 	$db->query("drop table cardinfo");
 
-	echo "failed";
-
 	$result = $db->query("create table cardinfo (email varchar(255), cardnum varchar(16), expiration varchar(255), cvv varchar(3), FOREIGN KEY (email) REFERENCES userinfo(email) ON DELETE CASCADE)") or die ("Invalid: " . $db->error);
 
 	$email = $_POST["email"];
@@ -72,8 +84,6 @@
 			$cvv = $_POST["CVVcode"];
 
 			$cardquery = $db->query("insert into cardinfo (email, cardnum, expiration, cvv) VALUES ('$email', '$card', '$expire', '$cvv')") or die ("Invalid: " . $db->error);
-
-
 }
 ?>
 
@@ -144,11 +154,12 @@
 						<!-- Content -->
 							<article id="content">
 								<header>
-									  	<h3 align="center"><strong> Congratulations! You are now a user! Feel free to browse our website! <strong></h3> <br>
+									 <h3 align="center"><strong> <?php echo $string; ?> <strong></h3> <br>
 								</header>
 								<!-- Originally 3 paragraphs using <p>; commented out b/c unnecessary for us as of now -->
 							</article>
 					</div>
+							<?php if($cardissue == false) {?>
 							<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 							<input type="hidden" name="cmd" value="_s-xclick">
 							<table>
@@ -163,6 +174,7 @@
 							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 							<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 							</form>
+							<?php } ?>
 				</div>
 
 			<!-- Footer -->
