@@ -13,7 +13,7 @@ require 'PHPMailer/PHPMailerAutoload.php';
 	$mail->setFrom('CookEZalerts@gmail.com', 'CookEZ');
 	//$mail->addReplyTo($email, 'CodexWorld');
 	$mail->addReplyTo('CookEZalerts@gmail.com', 'CookEZ');
-	$mail->addAddress('john@gmail.com');   // Add a recipient
+	$mail->addAddress('jgj7fv@virginia.com');   // Add a recipient
 	//$mail->addCC('cc@example.com');
 	//$mail->addBCC('bcc@example.com');
 
