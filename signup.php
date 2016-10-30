@@ -168,7 +168,7 @@
 								<div style="clear:both;"></div><br>
 
 								Address: <br>
-								<input type="text" name="address" placeholder="1234 StreetName" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z\s]).{2,}" title="Please include letters and numbers" required><br>
+								<input type="text" name="address" placeholder="1234 StreetName" pattern="(?=.*[0-9])([?=.*^-,]+)(?=.*[a-z])(?=.*[A-Z]).{2,}" title="Please include letters and numbers" required><br>
 								
 								<div style="display: inline-block; width:483px; margin-right: 10px">
 									City: <br>
