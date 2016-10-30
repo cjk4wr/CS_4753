@@ -1,6 +1,5 @@
 <?php
 require 'PHPMailer/PHPMailerAutoload.php';
-include 'transaction.php'
 	$mail = new PHPMailer;
 
 	$mail->isSMTP();                                   // Set mailer to use SMTP

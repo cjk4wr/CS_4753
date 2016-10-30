@@ -167,6 +167,7 @@ $cardissue = false;
 						<input type="hidden" name="lc" value="US">
 						<input type="hidden" name="item_name" value="Subscriptions">
 						<input type="hidden" name="button_subtype" value="services">
+						<input type="hidden" name="custom" value="<?= $email ?>"/>
 						<input type="hidden" name="no_note" value="0">
 						<input type="hidden" name="currency_code" value="USD">
 						<input type="hidden" name="tax_rate" value="10.000">
@@ -189,7 +190,7 @@ $cardissue = false;
 						<input type="hidden" name="option_select2" value="Semester long Subscription">
 						<input type="hidden" name="option_amount2" value="99.99">
 						<input type="hidden" name="option_index" value="0">
-						<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" onClick="mailer()" alt="PayPal - The safer, easier way to pay online!">
 						<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 						</form>
 							<?php } ?>
@@ -205,6 +206,17 @@ $cardissue = false;
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+
+			<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    		<script language="javascript">
+        	function mailer() {
+            $.ajax({
+                type: "GET",
+                url: "mailer.php" ,
+                data: { h: "michael" }
+            });
+        }
+    </script>
 
 	</body>
 </html>
