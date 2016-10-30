@@ -158,6 +158,7 @@ $cardissue = false;
 						<input type="hidden" name="lc" value="US">
 						<input type="hidden" name="item_name" value="Subscriptions">
 						<input type="hidden" name="button_subtype" value="services">
+						<input type="hidden" name="custom" value="<?= $email ?>"/>
 						<input type="hidden" name="no_note" value="0">
 						<input type="hidden" name="currency_code" value="USD">
 						<input type="hidden" name="tax_rate" value="10.000">
