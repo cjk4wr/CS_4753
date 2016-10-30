@@ -254,7 +254,7 @@
 								</div>
 								<div style="display: inline-block; width:200px;" >
 									Expiration Date: <br>
-									<input style="float:left; display:inline-block; width:80px;" type="text" onkeyup="autoFormAdvance(2,'month','year')" name="date1" id="month" maxlength="2" size="2" pattern="(0[1-9]|1[012])" placeholder="MM" title="Please use the MM format. For example, type 05 for May." required/> 
+									<input style="float:left; display:inline-block; width:80px;" type="text" onkeyup="autoFormAdvance(2,'month','year')" name="date1" id="month" maxlength="2" size="2" pattern="([0-1][0-9])" placeholder="MM" title="Please use the MM format. For example, type 05 for May." required/> 
 									<input style="float:left; display:inline-block; width:80px;" type="text" name="date2" id="year" maxlength="2" size="2" pattern="[0-9]{2}" placeholder="YY" title="Please use the YY format. For example, type 17 for 2017." required/>
 								</div>
 								<div style="display: inline-block; width:470px;" >
