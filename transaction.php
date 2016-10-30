@@ -47,8 +47,6 @@ $cardissue = false;
     		$phone = $_POST["phoneOne"] . $_POST["phoneTwo"] . $_POST["phoneThree"];
 
     		$query = $db->query("insert into userinfo (email, password, name, address, phone) VALUES ('$email', '$pass', '$name', '$address', '$phone')") or die ("Invalid: " . $db->error);
-
-
 }
 
 	$card = 'select 1 from `cardinfo` LIMIT 1';

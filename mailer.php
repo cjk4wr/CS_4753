@@ -14,8 +14,6 @@ require 'PHPMailer/PHPMailerAutoload.php';
 	//$mail->addReplyTo($email, 'CodexWorld');
 	$mail->addReplyTo('CookEZalerts@gmail.com', 'CookEZ');
 	$mail->addAddress('john@gmail.com');   // Add a recipient
-	//$mail->addCC('cc@example.com');
-	//$mail->addBCC('bcc@example.com');
 
 	$mail->isHTML(true);  // Set email format to HTML
 
