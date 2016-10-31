@@ -1,6 +1,14 @@
+<!--EComm Milestone
+
+- Make sure expiration date year is greater than 16
+- do we need to check for current date? (maybe a check on php: if(year == 16) check month or call error))
+- 
+-->
+
 <!-- Database input --> 
 <?php
-
+session_start();
+$_SESSION['email'] = $_POST["email"];
 
 $string = "Congratulations! You are now a user! Feel free to browse our website!";
 $cardissue = false;
@@ -68,7 +76,7 @@ $cardissue = false;
 
 	$db->query("drop table cardinfo");
 
-	$result = $db->query("create table cardinfo (email varchar(255), cardnum varchar(16), expiration varchar(255), cvv varchar(4), FOREIGN KEY (email) REFERENCES userinfo(email) ON DELETE CASCADE)") or die ("Invalid: " . $db->error);
+	$result = $db->query("create table cardinfo (email varchar(255), cardnum varchar(16), expiration varchar(255), cvv varchar(3), FOREIGN KEY (email) REFERENCES userinfo(email) ON DELETE CASCADE)") or die ("Invalid: " . $db->error);
 
 	$email = $_POST["email"];
 			$card = $_POST["ccOne"] . $_POST["ccTwo"] . $_POST["ccThree"] . $_POST["ccFour"];
@@ -144,12 +152,15 @@ $cardissue = false;
 					<div class="container" id="main">
 
 						<!-- Content -->
+							<article id="content">
+								<header>
 									 <h3 align="center"><strong> <?php echo $string; ?> <strong></h3>
+								</header>
 								<!-- Originally 3 paragraphs using <p>; commented out b/c unnecessary for us as of now -->
+							</article>
 					</div>
 							<?php if($cardissue == false) {?>
 						<h3 align="center"><strong> Subscriptions <strong></h3> <br>
-
 						<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
 						<input type="hidden" name="cmd" value="_xclick">
 						<input type="hidden" name="business" value="cjk4wr-facilitator@virginia.edu">
@@ -201,8 +212,7 @@ $cardissue = false;
         	function mailer() {
             $.ajax({
                 type: "GET",
-                url: "mailer.php" ,
-                data: { h: "michael" }
+                url: "mailer.php"
             });
         }
     </script>
