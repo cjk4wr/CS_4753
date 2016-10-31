@@ -150,14 +150,8 @@ $cardissue = false;
 			<!-- Main -->
 				<div class="wrapper">
 					<div class="container" id="main">
+									 <h3 style="font-size: 30px;"" align="center"><strong> <?php echo $string; ?> <strong></h3>			
 
-						<!-- Content -->
-							<article id="content">
-								<header>
-									 <h3 align="center"><strong> <?php echo $string; ?> <strong></h3>
-								</header>
-								<!-- Originally 3 paragraphs using <p>; commented out b/c unnecessary for us as of now -->
-							</article>
 					</div>
 							<?php if($cardissue == false) {?>
 						<h3 align="center"><strong> Subscriptions <strong></h3> <br>
