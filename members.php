@@ -77,6 +77,7 @@
 											<p style="display:inline"> Interested in our products?</p>
 											<strong><a href="transaction.php">Buy now!</a></strong>	
 										</section>
+									</section>
 							</div>
 							<div class="8u 12u(narrower) important(narrower)">
 
@@ -96,9 +97,10 @@
 									</article>
 							</div>
 						</div>
+					</div>
+				</div>
 
 
-						<br><br><br><br><br>
 			<!-- Footer -->
 				<div id="footer-wrapper">
 					<div id="footer" class="container">
