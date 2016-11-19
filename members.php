@@ -132,6 +132,22 @@
 									</div>
 								</form>
 							</section>
+							<!-- Icons for social media;; commented out for now
+							<section class="6u 12u(narrower)">
+								<div class="row 0%">
+									<ul class="divided icons 6u 12u(mobile)">
+										<li class="icon fa-twitter"><a href="#"><span class="extra">twitter.com/</span>untitled</a></li>
+										<li class="icon fa-facebook"><a href="#"><span class="extra">facebook.com/</span>untitled</a></li>
+										<li class="icon fa-dribbble"><a href="#"><span class="extra">dribbble.com/</span>untitled</a></li>
+									</ul>
+									<ul class="divided icons 6u 12u(mobile)">
+										<li class="icon fa-instagram"><a href="#"><span class="extra">instagram.com/</span>untitled</a></li>
+										<li class="icon fa-youtube"><a href="#"><span class="extra">youtube.com/</span>untitled</a></li>
+										<li class="icon fa-pinterest"><a href="#"><span class="extra">pinterest.com/</span>untitled</a></li>
+									</ul>
+								</div>
+							</section>
+						-->
 						</div>
 					</div>
 					<div id="copyright" class="container">
@@ -142,6 +158,7 @@
 				</div>
 
 		</div>
+
 
 		<!-- Scripts -->
 
