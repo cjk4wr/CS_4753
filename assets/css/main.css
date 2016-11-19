@@ -1978,6 +1978,11 @@
 			border-color: rgba(243, 88, 88, 0.5);
 		}
 /* Group added in left and right to the buttons on the about page*/
+	.sidebarCentering{
+		position: absolute;
+		left:100px;
+	}
+
 	.signup_button{
 	    color: white;
 		background-color: #f08c89;
