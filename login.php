@@ -77,7 +77,7 @@
 												Password: <br>
 												<input type="password" name="pw" placeholder="Password" pattern=".{6,}" title="Please make password at least 6 characters." required><br>
 												<br>						
-												<input style="left:0%;" type= submit class="button signup_button" value="Sign Up">
+												<input style="left:0%;" type= submit class="button signup_button" value="Login">
 										
 											</form>
 									</article>
@@ -87,13 +87,11 @@
 							<div class="4u 12u(narrower)">
 
 								<!-- Sidebar -->
-									<section id="sidebar" style="position: absolute; left:67%;">
+									<section id="sidebar" style="position: absolute; left:68%; padding-top:90px">
 										<section>
-											<header>
 												<h3>Not a Member?</h3>
-											</header>
-											<ul class="actions">
-												<li><a href="signup.php" class="button">Sign Up here</a></li>
+											<ul class="actions" style="position: absolute; left:15px;">
+												<li><a href="signup.php" class="button">Sign Up</a></li>
 											</ul>
 										</section>
 									</section>
