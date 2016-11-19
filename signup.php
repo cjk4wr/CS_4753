@@ -6,7 +6,7 @@
 		die ("Could not connect to db: " . $db->connect_error);
 	endif;
 
-	$q = 'select 1 from `UserInfo` LIMIT 1';
+	$q = 'select 1 from `userinfo` LIMIT 1';
 	$val = $db->query($q);
 
 	if($val !== FALSE) {
@@ -23,9 +23,9 @@
 
 	} else {
 
-	$db->query("drop table UserInfo");
+	$db->query("drop table userinfo");
 
-	$result = $db->query("create table UserInfo (email varchar(255) primary key not null, password varchar(255) not null, name varchar(255) not null, address varchar(255) not null, phone int(20) not null)") or die ("Invalid: " . $db->error);
+	$result = $db->query("create table userinfo (email varchar(255) primary key not null, password varchar(255) not null, name varchar(255) not null, address varchar(255) not null, phone int(20) not null)") or die ("Invalid: " . $db->error);
 
 }
 ?>

@@ -1,3 +1,31 @@
+<?php
+	$db = new mysqli('localhost', 'root', '', 'ecomm');
+	if ($db->connect_error):
+		die ("Could not connect to db: " . $db->connect_error);
+	endif;
+
+session_start();
+$_SESSION['email'] = $_POST["email"];
+$_SESSION['pw'] = $_POST["pw"];
+
+    $action = "actions.php";
+    $check = true;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+	$email = $_POST["email"];
+    $pass = $_POST["pw"];
+
+	$verify = "select * from `userinfo` where email='$email' and password='$pass'";
+	$val = $db->query($verify);
+
+	if ($val->num_rows == 0) {
+		$action= "<?php echo $_SERVER[PHP_SELF];?>";
+    	$check = false;
+	}
+}
+
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Telephasic by HTML5 UP
@@ -66,10 +94,15 @@
 								<div style="padding-right:80px; border-right: thick solid #bfbfbf;">
 								<!-- Content -->
 									<article id="content" class="feature">
+										<?php if($check == false) {
+											echo "There was an issue with your credentials. Please try again.";
+										} else {
+											echo "No issue";
+										} ?>
 										<header>
 											<h2>Login In</h2>
 										</header>
-											<form method="post" action="members.php">
+											<form method="post" action="<?php $actions ?>">
 												<!-- To make it refresh on same page, <?php echo $_SERVER['PHP_SELF']; ?> -->
 												<ul class="errorMessages"></ul>
 												Email Address: <br>
