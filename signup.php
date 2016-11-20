@@ -123,7 +123,7 @@
 										</ul>
 									</li>
 									-->
-									<li><a href="no-sidebar.html">About Us</a></li>
+									<li><a href="about.php">About Us</a></li>
 									<li> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; </li>
 									<!-- ^^ Note: This is here to make headings lined correctly; delete when we uncomment other li -->
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
