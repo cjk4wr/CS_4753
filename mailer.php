@@ -22,7 +22,7 @@ $sendEmail = $_SESSION['email'];
 
 	$mail->isHTML(true);  // Set email format to HTML
 
-	$bodyContent = '<h1>Thanks for signing up for CookEZ!</h1>';
+	$bodyContent = '<h1>Thanks for subscribing to CookEZ!</h1>';
 	$bodyContent .= '<p>You have successfully signed up for our service.  We hope you enjoy your product.
 	  Please let us know if you have any questions or concerns! </p>';
 

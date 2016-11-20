@@ -245,7 +245,7 @@
 								</div>
 								<div style="clear:both;"></div>
 								<h2 class="feature">Banking Information</h2> <br> <br>
-								<div style="display: inline-block; width:470px; margin-right: 15px">
+								<div style="display: inline-block; width:400px;">
 									Credit Card Number: <br>
 									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(4,'cc1','cc2')" name="ccOne" id="cc1" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use a 4-digit number." required/>
 									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" onkeyup="autoFormAdvance(4,'cc2','cc3')" name="ccTwo" id="cc2" maxlength="4" size="4" pattern="[0-9]{4}" placeholder="####" title="Please use a 4-digit number." required/>
@@ -254,12 +254,12 @@
 								</div>
 								<div style="display: inline-block; width:200px;" >
 									Expiration Date: <br>
-									<input style="float:left; display:inline-block; width:80px;" type="text" onkeyup="autoFormAdvance(2,'month','year')" name="date1" id="month" maxlength="2" size="2" pattern="([0-1][0-9])" placeholder="MM" title="Please use the MM format. For example, type 05 for May." required/> 
-									<input style="float:left; display:inline-block; width:80px;" type="text" name="date2" id="year" maxlength="2" size="2" pattern="[0-9]{2}" placeholder="YY" title="Please use the YY format. For example, type 17 for 2017." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px" type="text" onkeyup="autoFormAdvance(2,'month','year')" name="date1" id="month" maxlength="2" size="2" pattern="([0-1][0-9])" placeholder="MM" title="Please use the MM format. For example, type 05 for May." required/> 
+									<input style="float:left; display:inline-block; width:80px; margin:5px" type="text" name="date2" id="year" maxlength="2" size="2" pattern="[0-9]{2}" placeholder="YY" title="Please use the YY format. For example, type 17 for 2017." required/>
 								</div>
-								<div style="display: inline-block; width:470px;" >
+								<div style="display: inline-block; width:200px;" >
 									CVV: <br>
-									<input style="float:left; display:inline-block; width:80px; margin:5px;" type="text" name="CVVcode" id="cvv" maxlength="4" required pattern="[0-9]{3,4}" placeholder="CVV" title="Please input a 3 or 4-digit number." required/>
+									<input style="float:left; display:inline-block; width:80px; margin:5px" type="text" name="CVVcode" id="cvv" maxlength="4" required pattern="[0-9]{3,4}" placeholder="CVV" title="Please input a 3 or 4-digit number." required/>
 								</div>
 								<div style="clear:both;"></div>
 								<br>
