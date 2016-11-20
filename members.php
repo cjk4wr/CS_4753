@@ -1,3 +1,24 @@
+<?php
+	$db = new mysqli('localhost', 'root', '', 'ecomm');
+	if ($db->connect_error):
+		die ("Could not connect to db: " . $db->connect_error);
+	endif;
+
+session_start();
+$_SESSION['login'] = $_SESSION['email']; 
+$_SESSION['pw'] = $_SESSION['pw'];
+
+echo var_dump(isset($_SESSION['login']));
+echo $_SESSION['login'];
+echo var_dump(!isset($_SESSION['login']));
+
+if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+	$_SESSION['check'] = false;
+	echo "not logged in";
+	header('Location: login.php');
+}
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Telephasic by HTML5 UP
@@ -37,7 +58,7 @@
 												<a href="#">Phasellus consequat</a>
 												<ul>
 													<li><a href="#">Lorem ipsum dolor</a></li>
-													<li><a href="#">Phasellus consequat</a></li>
+				 									<li><a href="#">Phasellus consequat</a></li>
 													<li><a href="#">Magna phasellus</a></li>
 													<li><a href="#">Etiam dolore nisl</a></li>
 												</ul>

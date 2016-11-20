@@ -7,7 +7,8 @@
 session_start();
 $_SESSION['email'] = $_POST["email"];
 $_SESSION['pw'] = $_POST["pw"];
-    $check = true;
+$_SESSION['check'] = $_SESSION['check'];
+$checks = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 	$email = $_POST["email"];
@@ -17,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$val = $db->query($verify);
 
 	if ($val->num_rows == 0) {
-    	$check = false;
+    	$checks = false;
 	}
 }
 
@@ -95,7 +96,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 											<h2>Login</h2>
 										</header>
 										<?php if($_SERVER["REQUEST_METHOD"] == "POST") {
-												 if($check == false ) { ?>
+											if(	$_SESSION['check'] == false) { ?>
+												<p style="color:red"> *You are not authorized to visit that page. Please login. </p>
+											<?php
+											}
+												 if($checks == false ) { ?>
 												 <p style="color:red"> *There was an issue with your credentials. Please try again. </p>
 											<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 												<ul class="errorMessages"></ul>
