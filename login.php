@@ -8,8 +8,6 @@ session_start();
 $_SESSION['email'] = $_POST["email"];
 $_SESSION['pw'] = $_POST["pw"];
     $check = true;
-    $action = "members.php";
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 	$email = $_POST["email"];
@@ -20,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	if ($val->num_rows == 0) {
     	$check = false;
-    	$action = "<?php echo $_SERVER" . "'" . "PHP_SELF" . "'" . "]; ?.";
 	}
 }
 
@@ -95,12 +92,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								<!-- Content -->
 									<article id="content" class="feature">
 										<header>
-											<h2>Login In</h2>
+											<h2>Login</h2>
 										</header>
-											<?php if($check == false) {
-											echo "There was an issue with your credentials. Please try again."; 
-										} ?>
-								<!--			<form method="post" action="<?php echo $action ?>"> -->
+										<?php if($_SERVER["REQUEST_METHOD"] == "POST") {
+												 if($check == false ) { ?>
+												 <p style="color:red"> *There was an issue with your credentials. Please try again. </p>
 											<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 												<ul class="errorMessages"></ul>
 												Email Address: <br>
@@ -109,8 +105,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 												<input type="password" name="pw" placeholder="Password" pattern=".{6,}" title="Please make password at least 6 characters." required><br>
 												<br>						
 												<input style="left:0%;" type= submit class="button signup_button" value="Login">
-										
+											</form> 
+											<?php 
+										} else { 
+										 header('Location: members.php');
+											exit;
+										 }
+										} else { ?>
+											<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+												<ul class="errorMessages"></ul>
+												Email Address: <br>
+												<input type="email" name="email" placeholder="example@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" title="Please use format example@email.com" required><br>
+												Password: <br>
+												<input type="password" name="pw" placeholder="Password" pattern=".{6,}" title="Please make password at least 6 characters." required><br>
+												<br>						
+												<input style="left:0%;" type= submit class="button signup_button" value="Login">
 											</form>
+											<?php } ?>
 									</article>
 								</div>
 
