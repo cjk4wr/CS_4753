@@ -11,6 +11,7 @@ $_SESSION['pw'] = $_SESSION['pw'];
 echo var_dump(isset($_SESSION['login']));
 echo $_SESSION['login'];
 echo var_dump(!isset($_SESSION['login']));
+echo var_dump(isset($_SESSION['check']));
 
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 	$_SESSION['check'] = false;
@@ -92,8 +93,7 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 												<h3>Profile</h3>
 											</header>
 											<p style="display:inline"> <strong>Name:</strong></p> <br>
-											<p style="display:inline"> <strong>Subscription:</strong> </p> <br>
-											<p style="display:inline"> <strong>Expiration: </strong></p> <br>
+											<p style="display:inline"> <strong>Joined on:</strong> Dec 2016</p> <br>
 											<br><br>
 											<p style="display:inline"> Interested in our products?</p>
 											<strong><a href="transaction.php">Buy now!</a></strong>	

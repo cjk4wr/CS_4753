@@ -95,11 +95,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										<header>
 											<h2>Login</h2>
 										</header>
-										<?php if($_SERVER["REQUEST_METHOD"] == "POST") {
+										<?php
 											if(	$_SESSION['check'] == false) { ?>
 												<p style="color:red"> *You are not authorized to visit that page. Please login. </p>
 											<?php
 											}
+										if($_SERVER["REQUEST_METHOD"] == "POST") {
 												 if($checks == false ) { ?>
 												 <p style="color:red"> *There was an issue with your credentials. Please try again. </p>
 											<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
