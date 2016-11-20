@@ -1,3 +1,25 @@
+<?php
+session_start();
+$_SESSION['login'] = $_SESSION['email']; 
+$_SESSION['pw'] = $_SESSION['pw'];
+$_SESSION['loggedin'] = false;
+
+echo $_SESSION['login'];
+if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+	$_SESSION['check'] = false;
+}else{
+	$_SESSION['loggedin'] = true;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+	echo "hi";
+	$_SESSION['login'] = null; 
+	$_SESSION['pw'] = null;
+
+	$_SESSION['loggedin'] = false;
+}
+
+?>
 <!DOCTYPE HTML>
 <!--
 	Telephasic by HTML5 UP
@@ -6,7 +28,7 @@
 -->
 <html>
 	<head>
-		<title>About Us</title>
+		<title>CookEZ</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -14,7 +36,7 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
-	<body class="no-sidebar">
+	<body class="homepage">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -22,10 +44,16 @@
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Home</a></h1>
+							<h1 id="logo"><a href="index.php">Home</a></h1>
 
 						<!-- Nav -->
+						
 							<nav id="nav">
+								<?php if($_SESSION['loggedin'] === true) { ?>
+								<form method="post" action="index.php">
+									<a href="index.php"><button name="logout" type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
+								</form>
+								<?php } ?>
 								<ul>
 										<!--
 										<a href="#">Menu</a>
@@ -56,75 +84,103 @@
 							</nav>
 
 					</div>
+
+					<!-- Hero -->
+						<section id="hero" class="container">
+							<header>
+								<h2> CookEZ </h2>
+							</header>
+							<p> You can cook, too! </p>
+							<!-- In the future, can make this a link to the products page;; commented for now
+							<ul class="actions">
+								<li><a href="#" class="button">Get this party started</a></li>
+							</ul>
+						-->
+						</section>
+
 				</div>
 
-			<!-- Main -->
+			<!-- Features 1 -->
 				<div class="wrapper">
-					<div class="container" id="main">
-
-						<!-- Content -->
-							<article id="content">
-								<header>
-									<h2>About Us</h2>
-								</header>
-								<!-- Originally 3 paragraphs using <p>; commented out b/c unnecessary for us as of now -->
-							</article>
-
-						<div class="row features">
-							<section class="3u 12u(narrower) feature">
+					<div class="container">
+						<div class="row">
+							<section class="6u 12u(narrower) feature">
 								<div class="image-wrapper first">
-									<a href="#" class="image featured"><img src="images/Cook.jpg" alt="" /></a>
+									<a href="#" class="image featured first"><img src="images/computer.png" alt="" width="100" height="250" /></a>
 								</div>
 								<header>
-									<h3>What do we do?</h3>
+									<h2> You Order. </h2>
 								</header>
-								<p>At CookEZ, we provide our customers with the resources they need in order to cook fast and easy meals.  Customers can easily order simple meals of their choice from our website.  Then, we will deliver the ingredients within 30 minutes. Overall, our main goal here is to guide you so that you can cook, too.</p>
-								<!-- <ul class="actions">
+								<p>Use our simple product page to choose what meal you would like to eat.  We change our meal menu weekly and try our best to create a variety of different foods to add each time.</p>
+								<!--
+								<ul class="actions">
 									<li><a href="#" class="button">Elevate my awareness</a></li>
-								</ul> -->
+								</ul>
+							-->
 							</section>
-							<section class="3u 12u(narrower) feature">
+							<section class="6u 12u(narrower) feature">
 								<div class="image-wrapper">
-									<a href="#" class="image featured"><img src="images/benefit.jpg" alt="" /></a>
+									<a href="#" class="image featured"><img src="images/deliver.png" alt="" width="100" height="250" /></a>
 								</div>
 								<header>
-									<h3>How do we benefit people?</h3>
+									<h2> We Deliver. </h2>
 								</header>
-								<p>We want you to become healthier and more time efficient! In addition, we give 5% of our profit to charity, and any remaining ingredients are also donated!</p>
-								<!-- <ul class="actions">
+								<p>As soon as you order your meal, our company will deliver the food you want within thirty minutes.  If we don't arrive in time, you get your money back!  You'll order your food and be able to eat it in an hour.</p>
+								<!--
+								<ul class="actions">
 									<li><a href="#" class="button">Elevate my awareness</a></li>
-								</ul> -->
-							</section>
-							<section class="3u 12u(narrower) feature">
-								<div class="image-wrapper">
-									<a href="#" class="image featured"><img src="images/value.jpg" alt="" /></a>
-								</div>
-								<header>
-									<h3>What are our values?</h3>
-								</header>
-								<p>We value people's health, time, and our products. We want to provide a fresh, simple, and healthy meals to those who don't have time due to their daily busy schedules. </p>
-								<!-- <ul class="actions">
-									<li><a href="#" class="button">Elevate my awareness</a></li>
-								</ul> -->
-							</section>
-							<section class="3u 12u(narrower) feature">
-								<div class="image-wrapper">
-									<a href="#" class="image featured"><img src="images/prep.jpg" alt="" /></a>
-								</div>
-								<header>
-									<h3>What does our slogan mean?</h3>
-								</header>
-								<p>Don’t think you can cook? We believe that no matter who you are, if you have the necessary ingredients, tools, and instructions, you can make tasty, healthy, and easy meals quickly so that cooking doesn’t have to be another source of stress. </p>
-								<!-- <ul class="actions">
-									<li><a href="#" class="button">Elevate my awareness</a></li>
-								</ul> -->
+								</ul>
+							-->
 							</section>
 						</div>
-
 					</div>
-						<div class="actions" >
-							<a href="signup.php" class="button signup_button">Sign Up Now!</a>
+				</div>
+
+			<!-- Promo (Commenting out for now) 
+							<div id="promo-wrapper">
+					<section id="promo">
+						<h2>Neque semper magna et lorem ipsum adipiscing</h2>
+						<a href="#" class="button">Breach the thresholds</a>
+					</section>
+				</div>
+				-->
+
+
+			<!-- Features 2 -->
+				<div class="wrapper">
+					<section class="container">
+						<header class="major">
+							<h2>Our Values</h2>
+						</header>
+						<div class="row features">
+							<section class="4u 24u(narrower) feature">
+								<div class="image-wrapper first">
+									<a href="#" class="image featured"><img src="images/heart.png" height=189px alt="" /></a>
+								</div>
+								<p><strong>We value people’s health.</strong></p>
+								<p>People want to eat healthy meals, but don’t have the time to prep because of their daily busy schedule. No need to miss out! We are here to provide this fast and quick service.</p>
+							</section>
+							<section class="4u 24u(narrower) feature">
+								<div class="image-wrapper">
+									<a href="#" class="image featured"><img src="images/clock.gif" height=200px alt="" /></a>
+								</div>
+								<p><strong>We value people’s time.</strong></p> 
+								<p>Not only do we provide a meal that is simple, but we also provide fresh ingredients that are washed, prepped, and ready to be cooked when it is time to eat!</p>
+							</section>
+							<section class="4u 24u(narrower) feature">
+								<div class="image-wrapper">
+									<a href="#" class="image featured"><img src="images/basket-of-vegetables.png" height=189px width=200px alt="" /></a>
+								</div>
+								<p><strong>We value our products.</strong></p>
+								<p>We inspect and make sure our ingredients are nutritious and fresh in order to always serve you with high quality products.</p>
+							</section>
 						</div>
+						<!--
+						<ul class="actions major">
+							<li><a href="#" class="button">Elevate my awareness</a></li>
+						</ul>
+					-->
+					</section>
 				</div>
 
 			<!-- Footer -->

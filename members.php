@@ -7,15 +7,17 @@
 session_start();
 $_SESSION['login'] = $_SESSION['email']; 
 $_SESSION['pw'] = $_SESSION['pw'];
+$_SESSION['loggedin'] = false;
 
-echo var_dump(isset($_SESSION['login']));
-echo $_SESSION['login'];
-echo var_dump(!isset($_SESSION['login']));
+// echo var_dump(isset($_SESSION['login']));
+// echo $_SESSION['login'];
+// echo var_dump(!isset($_SESSION['login']));
 
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 	$_SESSION['check'] = false;
-	echo "not logged in";
 	header('Location: login.php');
+}else{
+	$_SESSION['loggedin'] = true;
 }
 ?>
 
@@ -43,10 +45,14 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Home</a></h1>
+							<h1 id="logo"><a href="index.php">Home</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
+								<?php if($_SESSION['loggedin'] == true) { ?>
+									<a href="members.php"><button type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
+								<?php } ?>
+							
 								<ul>
 										<!--
 										<a href="#">Menu</a>
