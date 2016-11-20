@@ -37,7 +37,7 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Home</a></h1>
+							<h1 id="logo"><a href="index.php">Home</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
@@ -66,7 +66,7 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 										</ul>
 									</li>
 									-->
-									<li><a href="no-sidebar.html">About Us</a></li>
+									<li><a href="about.php">About Us</a></li>
 									<li> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; </li>
 									<!-- ^^ Note: This is here to make headings lined correctly; delete when we uncomment other li -->
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
