@@ -72,12 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										</ul>
 									</li>
 									-->
-									<li><a href="no-sidebar.html">About Us</a></li>
+									<li><a href="about.php">About Us</a></li>
 									<li> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; </li>
 									<!-- ^^ Note: This is here to make headings lined correctly; delete when we uncomment other li -->
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
 									<!-- a href="left-sidebar.html" -> getting rid of sign up link for now -->
-									<li><a href="signup.php">Sign up</a></li>
+									<li><a href="login.php">Login</a></li>
 								</ul>
 							</nav>
 
@@ -95,11 +95,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										<header>
 											<h2>Login</h2>
 										</header>
-										<?php if($_SERVER["REQUEST_METHOD"] == "POST") {
+										<?php
 											if(	$_SESSION['check'] == false) { ?>
 												<p style="color:red"> *You are not authorized to visit that page. Please login. </p>
 											<?php
 											}
+										if($_SERVER["REQUEST_METHOD"] == "POST") {
 												 if($checks == false ) { ?>
 												 <p style="color:red"> *There was an issue with your credentials. Please try again. </p>
 											<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">

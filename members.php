@@ -1,8 +1,4 @@
 <?php
-	$db = new mysqli('localhost', 'root', '', 'ecomm');
-	if ($db->connect_error):
-		die ("Could not connect to db: " . $db->connect_error);
-	endif;
 
 session_start();
 $previous = $_SESSION['website'];
@@ -21,7 +17,16 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 }else{
 	$_SESSION['loggedin'] = true;
 }
-?>
+
+	$db = new mysqli('localhost', 'root', '', 'ecomm');
+	if ($db->connect_error):
+		die ("Could not connect to db: " . $db->connect_error);
+	endif;
+
+		$verify = "select name from `userinfo` where email='$email' and password='$pass'";
+	$val = $db->query($verify);
+	$row = mysqli_fetch_assoc($val);
+	?>
 
 <!DOCTYPE HTML>
 <!--
@@ -75,7 +80,7 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 										</ul>
 									</li>
 									-->
-									<li><a href="no-sidebar.html">About Us</a></li>
+									<li><a href="about.php">About Us</a></li>
 									<li> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; </li>
 									<!-- ^^ Note: This is here to make headings lined correctly; delete when we uncomment other li -->
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
@@ -99,9 +104,9 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 											<header>
 												<h3>Profile</h3>
 											</header>
-											<p style="display:inline"> <strong>Name:</strong></p> <br>
-											<p style="display:inline"> <strong>Subscription:</strong> </p> <br>
-											<p style="display:inline"> <strong>Expiration: </strong></p> <br>
+											<img src="profile.png"> <br>
+											<p style="display:inline"> <strong>Name:</strong> <?php echo $row['name'] ?> </p> <br>
+											<p style="display:inline"> <strong>Joined on:</strong> Dec 2016</p> <br>
 											<br><br>
 											<p style="display:inline"> Interested in our products?</p>
 											<strong><a href="transaction.php">Buy now!</a></strong>	

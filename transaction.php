@@ -1,10 +1,3 @@
-<!--EComm Milestone
-
-- Make sure expiration date year is greater than 16
-- do we need to check for current date? (maybe a check on php: if(year == 16) check month or call error))
-- 
--->
-
 <!-- Database input --> 
 <?php
 session_start();
@@ -161,12 +154,12 @@ $cardissue = false;
 										</ul>
 									</li>
 									-->
-									<li><a href="no-sidebar.html">About Us</a></li>
+									<li><a href="about.php">About Us</a></li>
 									<li> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; </li>
 									<!-- ^^ Note: This is here to make headings lined correctly; delete when we uncomment other li -->
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
 									<!-- a href="left-sidebar.html" -> getting rid of sign up link for now -->
-									<li><a href="transaction.php"> &nbsp; &emsp; Subscriptions</a></li>
+									<li><a href="members.php"> &nbsp; &emsp; Members</a></li>
 								</ul>
 							</nav>
 
@@ -176,8 +169,9 @@ $cardissue = false;
 			<!-- Main -->
 				<div class="wrapper">
 					<div class="container" id="main">
+							<?php if($_SESSION['loggedin'] == false) { ?>
 									 <h3 style="font-size: 30px;"" align="center"><strong> <?php echo $string; ?> <strong></h3>			
-
+									 <?php } ?>
 					</div>
 							<?php if($cardissue == false) {?>
 						<h3 align="center"><strong> Subscriptions <strong></h3> <br>
