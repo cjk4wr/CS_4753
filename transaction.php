@@ -160,8 +160,9 @@ $cardissue = false;
 			<!-- Main -->
 				<div class="wrapper">
 					<div class="container" id="main">
+							<?php if($_SESSION['loggedin'] == false) { ?>
 									 <h3 style="font-size: 30px;"" align="center"><strong> <?php echo $string; ?> <strong></h3>			
-
+									 <?php } ?>
 					</div>
 							<?php if($cardissue == false) {?>
 						<h3 align="center"><strong> Subscriptions <strong></h3> <br>
