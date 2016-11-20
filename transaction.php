@@ -8,7 +8,16 @@
 <!-- Database input --> 
 <?php
 session_start();
-$_SESSION['email'] = $_POST["email"];
+$previous = $_SESSION['website'];
+$_SESSION['website'] = "transaction.php";
+
+// Check if you are logged in or comming from signup
+if($previous === "signup.php"){
+	$_SESSION['email'] = $_POST["email"];
+}else{
+	$_SESSION['email'] = $_SESSION['email']; 
+}
+
 $_SESSION['login'] = $_SESSION['email']; 
 $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;

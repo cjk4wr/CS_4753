@@ -5,6 +5,8 @@
 	endif;
 
 session_start();
+$previous = $_SESSION['website'];
+$_SESSION['website'] = "members.php";
 $_SESSION['login'] = $_SESSION['email']; 
 $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;
