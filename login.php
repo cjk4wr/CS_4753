@@ -7,9 +7,9 @@
 session_start();
 $_SESSION['email'] = $_POST["email"];
 $_SESSION['pw'] = $_POST["pw"];
-
-    $action = "actions.php";
     $check = true;
+    $action = "members.php";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 	$email = $_POST["email"];
@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$val = $db->query($verify);
 
 	if ($val->num_rows == 0) {
-		$action= "<?php echo $_SERVER[PHP_SELF];?>";
     	$check = false;
+    	$action = "<?php echo $_SERVER" . "'" . "PHP_SELF" . "'" . "]; ?.";
 	}
 }
 
@@ -94,16 +94,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								<div style="padding-right:80px; border-right: thick solid #bfbfbf;">
 								<!-- Content -->
 									<article id="content" class="feature">
-										<?php if($check == false) {
-											echo "There was an issue with your credentials. Please try again.";
-										} else {
-											echo "No issue";
-										} ?>
 										<header>
 											<h2>Login In</h2>
 										</header>
-											<form method="post" action="<?php $actions ?>">
-												<!-- To make it refresh on same page, <?php echo $_SERVER['PHP_SELF']; ?> -->
+											<?php if($check == false) {
+											echo "There was an issue with your credentials. Please try again."; 
+										} ?>
+								<!--			<form method="post" action="<?php echo $action ?>"> -->
+											<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 												<ul class="errorMessages"></ul>
 												Email Address: <br>
 												<input type="email" name="email" placeholder="example@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" title="Please use format example@email.com" required><br>
