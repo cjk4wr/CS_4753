@@ -5,19 +5,9 @@ $_SESSION['login'] = $_SESSION['email'];
 $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;
 
-<<<<<<< HEAD
-$email = $_SESSION['login'];
-$pass = $_SESSION['pw'];
-
-//echo var_dump(isset($_SESSION['login']));
-//echo $_SESSION['login'];
-//echo var_dump(!isset($_SESSION['login']));
-//echo var_dump(isset($_SESSION['check']));
-=======
 // echo var_dump(isset($_SESSION['login']));
 // echo $_SESSION['login'];
 // echo var_dump(!isset($_SESSION['login']));
->>>>>>> 77f0157d4e80641e9ef2bef6d72bb346be61a2f0
 
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 	$_SESSION['check'] = false;
@@ -34,8 +24,7 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 		$verify = "select name from `userinfo` where email='$email' and password='$pass'";
 	$val = $db->query($verify);
 	$row = mysqli_fetch_assoc($val);
-
-?>
+	?>
 
 <!DOCTYPE HTML>
 <!--
