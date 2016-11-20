@@ -3,21 +3,14 @@ session_start();
 $_SESSION['login'] = $_SESSION['email']; 
 $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;
+$_SESSION['website']= "index.php";
 
-echo $_SESSION['login'];
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 	$_SESSION['check'] = false;
 }else{
 	$_SESSION['loggedin'] = true;
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
-	echo "hi";
-	$_SESSION['login'] = null; 
-	$_SESSION['pw'] = null;
-
-	$_SESSION['loggedin'] = false;
-}
 
 ?>
 <!DOCTYPE HTML>
@@ -50,9 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
 						
 							<nav id="nav">
 								<?php if($_SESSION['loggedin'] === true) { ?>
-								<form method="post" action="index.php">
-									<a href="index.php"><button name="logout" type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
-								</form>
+									<a href="logout.php"><button name="logout" type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
 								<?php } ?>
 								<ul>
 										<!--
@@ -74,12 +65,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
 										</ul>
 									</li>
 									-->
-									<li><a href="about.php">About Us</a></li>
+									<li><a href="no-sidebar.html">About Us</a></li>
 									<li> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; </li>
 									<!-- ^^ Note: This is here to make headings lined correctly; delete when we uncomment other li -->
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
 									<!-- a href="left-sidebar.html" -> getting rid of sign up link for now -->
-									<li><a href="login.php">Login</a></li>
+									<li><a href="signup.php">Sign up</a></li>
 								</ul>
 							</nav>
 
