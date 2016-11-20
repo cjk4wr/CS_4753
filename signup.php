@@ -99,7 +99,7 @@
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Home</a></h1>
+							<h1 id="logo"><a href="index.php">Home</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">

@@ -3,7 +3,9 @@
 session_start();
 $_SESSION['login'] = $_SESSION['email']; 
 $_SESSION['pw'] = $_SESSION['pw'];
+$_SESSION['loggedin'] = false;
 
+<<<<<<< HEAD
 $email = $_SESSION['login'];
 $pass = $_SESSION['pw'];
 
@@ -11,10 +13,17 @@ $pass = $_SESSION['pw'];
 //echo $_SESSION['login'];
 //echo var_dump(!isset($_SESSION['login']));
 //echo var_dump(isset($_SESSION['check']));
+=======
+// echo var_dump(isset($_SESSION['login']));
+// echo $_SESSION['login'];
+// echo var_dump(!isset($_SESSION['login']));
+>>>>>>> 77f0157d4e80641e9ef2bef6d72bb346be61a2f0
 
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 	$_SESSION['check'] = false;
 	header('Location: login.php');
+}else{
+	$_SESSION['loggedin'] = true;
 }
 
 	$db = new mysqli('localhost', 'root', '', 'ecomm');
@@ -52,10 +61,14 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Home</a></h1>
+							<h1 id="logo"><a href="index.php">Home</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
+								<?php if($_SESSION['loggedin'] == true) { ?>
+									<a href="members.php"><button type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
+								<?php } ?>
+							
 								<ul>
 										<!--
 										<a href="#">Menu</a>

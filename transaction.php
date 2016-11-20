@@ -2,6 +2,18 @@
 <?php
 session_start();
 $_SESSION['email'] = $_POST["email"];
+$_SESSION['login'] = $_SESSION['email']; 
+$_SESSION['pw'] = $_SESSION['pw'];
+$_SESSION['loggedin'] = false;
+
+echo $_SESSION['login'];
+if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+	echo "not logged in";
+	$_SESSION['check'] = false;
+}else{
+	echo "logged in";
+	$_SESSION['loggedin'] = true;
+}
 
 $string = "Congratulations! You are now a user! Feel free to browse our website!";
 $cardissue = false;
@@ -104,10 +116,15 @@ $cardissue = false;
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html">Home</a></h1>
+							<h1 id="logo"><a href="index.php">Home</a></h1>
 
 						<!-- Nav -->
 							<nav id="nav">
+								<?php if($_SESSION['loggedin'] === true) { ?>
+									<form method="post" action="login.php">
+										<a href="index.php"><button name="logout" type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
+									</form>
+								<?php } ?>
 								<ul>
 										<!--
 										<a href="#">Menu</a>
