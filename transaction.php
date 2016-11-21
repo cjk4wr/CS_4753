@@ -15,6 +15,12 @@ $_SESSION['login'] = $_SESSION['email'];
 $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;
 
+if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+	$_SESSION['check'] = false;
+	header('Location: login.php');
+}else{
+	$_SESSION['loggedin'] = true;
+}
 
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 	$_SESSION['check'] = false;

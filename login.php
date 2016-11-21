@@ -10,6 +10,7 @@ $_SESSION['pw'] = $_POST["pw"];
 $_SESSION['check'] = $_SESSION['check'];
 $_SESSION['loggedin'] = false;
 $_SESSION['website']= "login.php";
+$previous = $_SESSION['website'];
 $checks = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	
@@ -98,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 											<h2>Login</h2>
 										</header>
 										<?php
-											if(	$_SESSION['check'] == false) { ?>
+											if(	$_SESSION['check'] == false && $previous == 'members.php') { ?>
 												<p style="color:red"> *You are not authorized to visit that page. Please login. </p>
 											<?php
 											}
