@@ -6,8 +6,10 @@ $_SESSION['website'] = "transaction.php";
 
 // Check if you are logged in or comming from signup
 if($previous === "signup.php"){
+	echo "sign up";
 	$_SESSION['email'] = $_POST["email"];
 }else{
+	echo "log in";
 	$_SESSION['email'] = $_SESSION['email']; 
 }
 
