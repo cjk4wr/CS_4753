@@ -71,10 +71,10 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
 									<!-- a href="left-sidebar.html" -> getting rid of sign up link for now -->
 									<?php if($_SESSION['loggedin'] === true) { ?>
-										<li><a href="members.php">Members</a></li> ?>
+										<li><a href="members.php">Members</a></li> 
 									<?php } ?>
 									<?php if($_SESSION['loggedin'] === false) { ?>
-										<li><a href="login.php">Login</a></li> ?>
+										<li><a href="login.php">Login</a></li> 
 									<?php } ?>
 								</ul>
 							</nav>
