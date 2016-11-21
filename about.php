@@ -3,13 +3,11 @@ session_start();
 $_SESSION['login'] = $_SESSION['email']; 
 $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;
+$_SESSION['website']= "about.php";
 
-echo $_SESSION['login'];
-if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
-	echo "not logged in";
+if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {	
 	$_SESSION['check'] = false;
 }else{
-	echo "logged in";
 	$_SESSION['loggedin'] = true;
 }
 ?>
@@ -43,7 +41,7 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 							<nav id="nav">
 								<?php if($_SESSION['loggedin'] === true) { ?>
 									<form method="post" action="about.php">
-										<a href="index.php"><button name="logout" type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
+										<a href="logout.php"><button name="logout" type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
 									</form>
 								<?php } ?>
 								<ul>
@@ -146,9 +144,11 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 						</div>
 
 					</div>
-						<div class="actions" >
-							<a href="signup.php" class="button signup_button">Sign Up Now!</a>
-						</div>
+						<?php if($_SESSION['loggedin'] === false) { ?>
+								<div class="actions" >
+									<a href="signup.php" class="button signup_button">Sign Up Now!</a>
+								</div>
+						<?php } ?>
 				</div>
 
 			<!-- Footer -->
