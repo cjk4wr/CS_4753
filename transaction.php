@@ -173,7 +173,7 @@ $cardissue = false;
 			<!-- Main -->
 				<div class="wrapper">
 					<div class="container" id="main">
-							<?php if($_SESSION['loggedin'] == false) { ?>
+							<?php if($_SESSION['loggedin'] == false || $previous == 'signup.php') { ?>
 									 <h3 style="font-size: 30px;"" align="center"><strong> <?php echo $string; ?> <strong></h3>			
 									 <?php } ?>
 					</div>
