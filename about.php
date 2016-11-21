@@ -142,9 +142,11 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 						</div>
 
 					</div>
-						<div class="actions" >
-							<a href="signup.php" class="button signup_button">Sign Up Now!</a>
-						</div>
+						<?php if($_SESSION['loggedin'] === false) { ?>
+								<div class="actions" >
+									<a href="signup.php" class="button signup_button">Sign Up Now!</a>
+								</div>
+						<?php } ?>
 				</div>
 
 			<!-- Footer -->
