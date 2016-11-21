@@ -1,10 +1,8 @@
 <!-- Database input --> 
 <?php
+	session_start();
 	$_SESSION['loggedin'] = false;
 	$_SESSION['website']= "signup.php";
-	$_SESSION['email'];  = $_POST["email"]; 
-	$_SESSION['pw'] = $_POST["pw"];
-	
 	$db = new mysqli('localhost', 'root', '', 'ecomm');
 	if ($db->connect_error):
 		die ("Could not connect to db: " . $db->connect_error);
@@ -21,7 +19,7 @@
     		$name = $_POST["firstname"]. " " . $_POST["lastname"];
     		$address = $_POST["address"] . ", " . $_POST["city"] . ", " . $_POST["state"] . ", " . $_POST["zipcode"];
     		$phone = $_POST["phoneOne"] . $_POST["phoneTwo"] . $_POST["phoneThree"];
-
+    		
     		$query = $db->query("insert into userinfo (email, password, name, address, phone) VALUES ('$email', '$pass', '$name', '$address', '$phone')") or die ("Invalid: " . $db->error);
  		}
 
