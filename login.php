@@ -8,6 +8,8 @@ session_start();
 $_SESSION['email'] = $_POST["email"];
 $_SESSION['pw'] = $_POST["pw"];
 $_SESSION['check'] = $_SESSION['check'];
+$_SESSION['loggedin'] = false;
+$_SESSION['website']= "login.php";
 $checks = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {	

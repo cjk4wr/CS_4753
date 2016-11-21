@@ -1,6 +1,7 @@
 <!-- Database input --> 
 <?php
-
+	$_SESSION['loggedin'] = false;
+	$_SESSION['website']= "signup.php";
 	$db = new mysqli('localhost', 'root', '', 'ecomm');
 	if ($db->connect_error):
 		die ("Could not connect to db: " . $db->connect_error);

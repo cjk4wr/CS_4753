@@ -15,12 +15,10 @@ $_SESSION['login'] = $_SESSION['email'];
 $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;
 
-echo $_SESSION['login'];
+
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
-	echo "not logged in";
 	$_SESSION['check'] = false;
 }else{
-	echo "logged in";
 	$_SESSION['loggedin'] = true;
 }
 

@@ -5,12 +5,9 @@ $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;
 $_SESSION['website']= "about.php";
 
-echo $_SESSION['login'];
-if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
-	echo "not logged in";
+if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {	
 	$_SESSION['check'] = false;
 }else{
-	echo "logged in";
 	$_SESSION['loggedin'] = true;
 }
 ?>
