@@ -135,7 +135,7 @@ $cardissue = false;
 							<nav id="nav">
 								<?php if($_SESSION['loggedin'] === true) { ?>
 									<form method="post" action="login.php">
-										<a href="logout.php"><button name="logout" type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
+										<a href="logout.php"><button name="logout" type = "button" style="position:absolute; left:92%; top:15px; background-color:white; font-family: 'Source Sans Pro', sans-serif;">Logout</button></a>
 									</form>
 								<?php } ?>
 								<ul>
