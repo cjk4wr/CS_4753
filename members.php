@@ -4,12 +4,12 @@ session_start();
 $previous = $_SESSION['website'];
 $_SESSION['website'] = "members.php";
 
-if($previous === 'signup.php'){
+if($previous != 'transaction.php'){
 	$_SESSION['login'] = $_SESSION['email']; 
 	$_SESSION['pw'] = $_SESSION['pw'];
 }else{
-	$_SESSION['login']  = $_POST["email"]; 	
-	$_SESSION['pw'] = $_POST["pw"];
+	$_SESSION['login'] = $_SESSION['login']; 	
+	$_SESSION['pw'] = $_SESSION['pw'];
 }
 $_SESSION['loggedin'] = false;
 
