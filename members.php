@@ -61,7 +61,7 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 						<!-- Nav -->
 							<nav id="nav">
 								<?php if($_SESSION['loggedin'] == true) { ?>
-									<a href="logout.php"><button type = "button" style="position:absolute; left:92%; top:15px; background-color:white">Logout</button></a>
+									<a href="logout.php"><button type = "button" style="position:absolute; left:92%; top:15px; background-color:white; font-family: 'Source Sans Pro', sans-serif;">Logout</button></a>
 								<?php } ?>
 							
 								<ul>

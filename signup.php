@@ -2,6 +2,9 @@
 <?php
 	$_SESSION['loggedin'] = false;
 	$_SESSION['website']= "signup.php";
+	$_SESSION['email'];  = $_POST["email"]; 
+	$_SESSION['pw'] = $_POST["pw"];
+	
 	$db = new mysqli('localhost', 'root', '', 'ecomm');
 	if ($db->connect_error):
 		die ("Could not connect to db: " . $db->connect_error);
