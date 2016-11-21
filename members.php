@@ -22,7 +22,7 @@ $pass = $_SESSION['pw'];
 
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 	$_SESSION['check'] = false;
-	header('Location: login.php');
+	header('Location: index.php');
 }else{
 	$_SESSION['loggedin'] = true;
 }

@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 -->
 <html>
 	<head>
-		<title>Login</title>
+		<title>Sign in</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									<!-- ^^ Note: This is here to make headings lined correctly; delete when we uncomment other li -->
 									<!-- <li class="break"><a href="right-sidebar.html">Products</a></li> -->
 									<!-- a href="left-sidebar.html" -> getting rid of sign up link for now -->
-									<li><a href="login.php">Login</a></li>
+									<li><a href="login.php">Sign in</a></li>
 								</ul>
 							</nav>
 

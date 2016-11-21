@@ -73,7 +73,7 @@ if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 									<?php if($_SESSION['loggedin'] == true) { ?>
 										<li><a href="members.php">Members</a></li>
 									<?php }else{ ?>
-										<li><a href="login.php">Login</a></li>
+										<li><a href="login.php">Sign in</a></li>
 									<?php } ?>
 								</ul>
 							</nav>
