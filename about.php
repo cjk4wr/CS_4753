@@ -3,6 +3,7 @@ session_start();
 $_SESSION['login'] = $_SESSION['email']; 
 $_SESSION['pw'] = $_SESSION['pw'];
 $_SESSION['loggedin'] = false;
+$_SESSION['website']= "about.php";
 
 echo $_SESSION['login'];
 if(!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
