@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 											<h2>Login</h2>
 										</header>
 										<?php
-											if(	$_SESSION['check'] == false && $previous == 'members.php') { ?>
+											if(	$_SESSION['check'] == false && $previous !== 'about.php') { ?>
 												<p style="color:red"> *You are not authorized to visit that page. Please login. </p>
 											<?php
 											}
